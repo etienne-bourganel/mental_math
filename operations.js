@@ -1,3 +1,7 @@
+export {
+  level0
+}
+
 // All basic operations
 const add = (a, b) => a + b
 const sub = (a, b) => a - b
@@ -13,5 +17,11 @@ const randomInteger = (min, max) => {
 const level0 = () => {
   const a = randomInteger(1, 20)
   const b = randomInteger(1, 20)
-  console.log(a + "+" + b + "?")
+  const result = add(a, b)
+  const userAnswer = window.prompt(a + " + " + b + " ?")
+  if (userAnswer == result) {
+    return 1
+  } else {
+    return 0
+  }
 }
