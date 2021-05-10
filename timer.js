@@ -1,14 +1,17 @@
-// Set a timer and display it
-
-let timeLeft = 20
-
-function updateTimer() {
-  timeLeft -= 1
-  console.log(timeLeft)
+export {
+  startTimer
 }
 
-function startTimer() {
-  while (timeLeft) {
-    setInterval(updateTimer, 1000)
-  }
+// Set a timer and display it
+const timer = document.querySelector("#timer")
+
+function startTimer(timeLeft) {
+  setInterval(() => {
+    timer.innerHTML = timeLeft.toFixed(2)
+    if (timeLeft <= 0.01) {
+      return "Time is out"
+    } else {
+      timeLeft -= 0.01
+    }
+  }, 10)
 }

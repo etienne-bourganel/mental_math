@@ -13,12 +13,15 @@ const randomInteger = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
+const question = document.querySelector("#question")
+
 // Level 0 Additions
 const level0 = () => {
   const a = randomInteger(1, 20)
   const b = randomInteger(1, 20)
   const result = add(a, b)
-  const userAnswer = window.prompt(a + " + " + b + " ?")
+  question.innerHTML = `${a} + ${b} ?`
+  const userAnswer = prompt(`${a} + ${b} ?`)
   if (userAnswer == result) {
     return 1
   } else {
