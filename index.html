@@ -1,23 +1,28 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Mental Math</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="./main.css">
-    <link rel="stylesheet" href="./reset.css">
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="./reset.css" />
+    <link rel="stylesheet" href="./main.css" />
     <script type="module" src="./main.js" async defer></script>
-</head>
+  </head>
 
-<body>
+  <body>
     <h1>Mental Math</h1>
-    <div id="timer"></div>
-    <div id="question"></div>
-    <div id="result"></div>
-
-</body>
-
+    <div class="timer" id="timer"></div>
+    <div class="info" id="game_update">Ready?</div>
+    <div class="info question" id="question">Question</div>
+    <input
+      id="user_answer"
+      class="info input-box"
+      type="number"
+      placeholder="0"
+    />
+    <div class="info" id="result">Result</div>
+    <div id="start" class="info start">START</div>
+  </body>
 </html>

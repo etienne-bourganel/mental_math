@@ -1,27 +1,30 @@
-import {
-  level0
-} from "./operations.js"
-
-import {
-  startTimer
-} from "./timer.js"
+// All imports
+import { level0 } from "./operations.js"
+import { startTimer, timer, timerOff } from "./timer.js"
 
 // Declaration and initialization of main variables
 let score = 0
 let round = 1
+let timeLeft = 10
 
-// One gane of 5 rounds
+// Declaration of DOM elements
+const startButton = document.querySelector("#start")
+const userInput = document.querySelector("#user_answer")
+userInput.setAttribute("value", "0")
 
-const result = document.querySelector("#result")
+// Prepare the timer
+timerOff()
+timer.innerHTML = timeLeft.toFixed(2)
 
-let timeLeft = 5
-startTimer(timeLeft)
-// while (round <= 5 || timeLeft <= 0) {
+// Start the timer when the START button is pressed
+startButton.addEventListener("click", () => {
+  startTimer(timeLeft)
+})
 
-//   level0()
-//   if (level0()) {
-//     score += 1
-//   }
-//   round += 1
-// }
-result.innerHTML = "Your score is " + score + "/5"
+// Reads the value of the input userAnswer when the Return key is up
+document.addEventListener("keyup", (e) => {
+  if (e.key === "Enter") {
+    let userValue = userInput.value
+    console.log(userValue)
+  }
+})

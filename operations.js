@@ -1,6 +1,4 @@
-export {
-  level0
-}
+export { level0 }
 
 // All basic operations
 const add = (a, b) => a + b
@@ -10,7 +8,7 @@ const div = (a, b) => a / b
 
 // Generation of random integers
 const randomInteger = (min, max) => {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
+  return Math.floor(Math.random() * (max - min + 1)) + min
 }
 
 const question = document.querySelector("#question")
@@ -21,10 +19,4 @@ const level0 = () => {
   const b = randomInteger(1, 20)
   const result = add(a, b)
   question.innerHTML = `${a} + ${b} ?`
-  const userAnswer = prompt(`${a} + ${b} ?`)
-  if (userAnswer == result) {
-    return 1
-  } else {
-    return 0
-  }
 }
