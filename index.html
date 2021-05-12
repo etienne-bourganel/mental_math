@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="./reset.css" />
     <link rel="stylesheet" href="./main.css" />
     <script type="module" src="./main.js" async defer></script>
+    <link rel="shortcut icon" type="image/jpg" href="/favicon.png" />
   </head>
 
   <body>
@@ -16,12 +17,14 @@
     <div class="timer" id="timer"></div>
     <div class="info" id="game_update">Ready?</div>
     <div class="info question" id="question">Question</div>
-    <input
-      id="user_answer"
-      class="info input-box"
-      type="number"
-      placeholder="0"
-    />
+    <form id="userAnswerForm">
+      <input
+        id="userAnswerInput"
+        class="info input-box"
+        type="number"
+        placeholder="0"
+      />
+    </form>
     <div class="info" id="result">Result</div>
     <div id="start" class="info start">START</div>
   </body>

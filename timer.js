@@ -1,4 +1,4 @@
-export { startTimer, timer, timerOff }
+export { myTimer, timer, timerOff }
 
 // Declaration of DOM elements
 const timer = document.querySelector("#timer")
@@ -15,14 +15,19 @@ const timerOn = () => {
   timer.classList.add("timer-on")
 }
 
-// Start the timer and update the style fo the timer and the game info
-function startTimer(timeLeft) {
+// What to do when time is out
+const timerEnd = () => {
+  timerOff()
+  game_update.innerHTML = "Time is out!"
+}
+// Start the timer and update the style and game info
+function myTimer(timeLeft) {
   timerOn()
   game_update.innerHTML = "Go!"
-  setInterval(() => {
+  const startTimer = setInterval(() => {
     if (timeLeft <= 0) {
-      timerOff()
-      game_update.innerHTML = "Time is out!"
+      clearInterval(startTimer)
+      return timerEnd()
     } else {
       timer.innerHTML = timeLeft.toFixed(2)
       timeLeft -= 0.01
