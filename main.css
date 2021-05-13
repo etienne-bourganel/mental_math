@@ -3,32 +3,204 @@ html {
   text-align: center;
 }
 
-.timer {
-  box-sizing: border-box;
-  color: #fff;
-  font-size: 1em;
-}
 .main-container {
   display: grid;
   grid-template:
     "header"
     "levelTimer"
     "progressBar"
+    "display"
     "keys";
+  grid-template-rows: 3fr 5fr 2fr 8fr 20fr;
+  height: 98vh;
+  margin: 0 0.5em;
 }
 
+#header,
+#levelTimer,
+#progressBar,
+#display,
+#keys {
+  border: 1px solid #000;
+}
+
+/* HEADER STYLES*/
+#header {
+  display: grid;
+  grid-area: header;
+  grid-template: "appTitle credits";
+  grid-template-columns: 1fr 3fr;
+  margin-top: 0.5em;
+}
+
+#appTitle {
+  grid-area: appTitle;
+}
+
+#credits {
+  grid-area: credits;
+}
+
+/* LEVEL AND TIMER STYLES*/
+#levelTimer {
+  grid-area: levelTimer;
+  display: grid;
+  grid-template: "level timer";
+  grid-template-columns: 2fr 3fr;
+  margin-top: 1em;
+}
+
+#level {
+  grid-area: level;
+}
+
+#timer {
+  grid-area: timer;
+}
+
+/* PROGRESS BAR STYLES*/
+#progressBar {
+  display: flex;
+  grid-area: progressBar;
+  justify-content: space-evenly;
+  margin-top: 1em;
+}
+
+.progress-bubble {
+  border-radius: 1em;
+  border-style: solid;
+  border-width: 1px;
+  height: 1em;
+  width: 1em;
+}
+
+/* DISPLAY STYLES*/
+#display {
+  background-color: aqua;
+  display: grid;
+  grid-area: display;
+  grid-template:
+    "displayInfo"
+    "displayUserInfo";
+  grid-template-rows: 1fr 1fr;
+  margin-top: 0.1em;
+}
+
+#displayInfo {
+  grid-area: displayInfo;
+}
+
+#displayUserInput {
+  grid-area: displayUserInfo;
+}
+
+.display-text {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin: 0.5em;
+}
+
+/* KEYS STYLES */
 #keys {
   display: grid;
+  gap: 0.3em;
+  grid-area: keys;
   grid-template:
-    "7 8 9 space"
-    "4 5 6 space"
-    "1 2 3 space"
-    "0 clear clear enter";
+    "seven eight nine space"
+    "four five six space"
+    "one two three space"
+    "zero clear clear space";
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  height: 96vw;
+  margin-top: 1em;
 }
+.number-touch {
+  align-items: center;
+  background-color: rgb(29, 28, 28);
+  color: #fff;
+  display: flex;
+  justify-content: center;
+}
+
+.number {
+}
+
+#clear,
+#enter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#clear {
+  background-color: #d77f14;
+  grid-area: clear;
+}
+
+#enter {
+  background-color: #5bce14;
+  grid-area: space;
+  text-orientation: upright;
+  writing-mode: vertical-rl;
+}
+
+#zero {
+  grid-area: zero;
+}
+
+#one {
+  grid-area: one;
+}
+
+#two {
+  grid-area: two;
+}
+
+#three {
+  grid-area: three;
+}
+
+#four {
+  grid-area: four;
+}
+
+#five {
+  grid-area: five;
+}
+
+#six {
+  grid-area: six;
+}
+
+#seven {
+  grid-area: seven;
+}
+
+#eight {
+  grid-area: eight;
+}
+
+#nine {
+  grid-area: nine;
+}
+
+/* TIMER STYLES*/
 .timer-off {
   background-color: #12606d;
 }
 
 .timer-on {
   background-color: #d71414;
+}
+
+.timer {
+  box-sizing: border-box;
+  color: #fff;
+  font-size: 1em;
+  grid-area: timer;
+  align-items: center;
+  display: flex;
+  justify-content: center;
 }

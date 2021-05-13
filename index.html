@@ -14,43 +14,75 @@
 
   <body>
     <div class="main-container">
-      <header>
+      <div id="header">
         <div id="appTitle">Mental Math V0.2</div>
-        <div><a href="" target="_blank">Made by Etienne Bourganel</a></div>
-      </header>
+        <div id="credits">
+          <a href="" target="_blank">Made by Etienne Bourganel</a>
+        </div>
+      </div>
       <div id="levelTimer">
         <div id="level">Level 0</div>
-        <div class="timer" id="timer">20.00</div>
+        <div class="timer" id="timer">
+          <div id="timerInfo"></div>
+        </div>
       </div>
       <div id="progressBar">
-        <div id="b1" class="bubble"></div>
-        <div id="b2" class="bubble"></div>
-        <div id="b3" class="bubble"></div>
-        <div id="b4" class="bubble"></div>
-        <div id="b5" class="bubble"></div>
-        <div id="b6" class="bubble"></div>
-        <div id="b7" class="bubble"></div>
-        <div id="b8" class="bubble"></div>
-        <div id="b9" class="bubble"></div>
-        <div id="b10" class="bubble"></div>
+        <div id="b1" class="progress-bubble"></div>
+        <div id="b2" class="progress-bubble"></div>
+        <div id="b3" class="progress-bubble"></div>
+        <div id="b4" class="progress-bubble"></div>
+        <div id="b5" class="progress-bubble"></div>
+        <div id="b6" class="progress-bubble"></div>
+        <div id="b7" class="progress-bubble"></div>
+        <div id="b8" class="progress-bubble"></div>
+        <div id="b9" class="progress-bubble"></div>
+        <div id="b10" class="progress-bubble"></div>
       </div>
       <div class="display" id="display">
-        <div class="display-text" id="info">Press ENTER to Start</div>
-        <div class="display-text" id="userInput">0</div>
+        <div class="display-text">
+          <div id="displayInfo">Press ENTER to Start</div>
+        </div>
+        <div class="display-text">
+          <div id="displayUserInput">0</div>
+        </div>
       </div>
       <div id="keys">
-        <div data-key="27" id="clear" class="clear">CLEAR</div>
-        <div data-key="32" id="enter" class="enter">ENTER</div>
-        <div data-key="48" id="zero" value="0" class="number">0</div>
-        <div data-key="49" id="one" value="1" class="number">1</div>
-        <div data-key="50" id="two" value="2" class="number">2</div>
-        <div data-key="51" id="three" value="3" class="number">3</div>
-        <div data-key="52" id="four" value="4" class="number">4</div>
-        <div data-key="53" id="five" value="5" class="number">5</div>
-        <div data-key="54" id="six" value="6" class="number">6</div>
-        <div data-key="55" id="seven" value="7" class="number">7</div>
-        <div data-key="56" id="eight" value="8" class="number">8</div>
-        <div data-key="57" id="nine" value="9" class="number">9</div>
+        <div data-key="27" id="clear">
+          <div class="clear">CLEAR</div>
+        </div>
+        <div data-key="32" id="enter">
+          <div class="enter">ENTER</div>
+        </div>
+        <div data-key="48" id="zero" value="0" class="number-touch">
+          <div class="number">0</div>
+        </div>
+        <div data-key="49" id="one" value="1" class="number-touch">
+          <div class="number">1</div>
+        </div>
+        <div data-key="50" id="two" value="2" class="number-touch">
+          <div class="number">2</div>
+        </div>
+        <div data-key="51" id="three" value="3" class="number-touch">
+          <div class="number">3</div>
+        </div>
+        <div data-key="52" id="four" value="4" class="number-touch">
+          <div class="number">4</div>
+        </div>
+        <div data-key="53" id="five" value="5" class="number-touch">
+          <div class="number">5</div>
+        </div>
+        <div data-key="54" id="six" value="6" class="number-touch">
+          <div class="number">6</div>
+        </div>
+        <div data-key="55" id="seven" value="7" class="number-touch">
+          <div class="number">7</div>
+        </div>
+        <div data-key="56" id="eight" value="8" class="number-touch">
+          <div class="number">8</div>
+        </div>
+        <div data-key="57" id="nine" value="9" class="number-touch">
+          <div class="number">9</div>
+        </div>
       </div>
     </div>
   </body>
