@@ -16,14 +16,6 @@ html {
   margin: 0 0.5em;
 }
 
-#header,
-#levelTimer,
-#progressBar,
-#display,
-#keys {
-  border: 1px solid #000;
-}
-
 /* HEADER STYLES*/
 #header {
   display: grid;
@@ -35,10 +27,26 @@ html {
 
 #appTitle {
   grid-area: appTitle;
+  align-items: center;
+  display: flex;
+  justify-content: center;
 }
 
 #credits {
   grid-area: credits;
+  align-items: center;
+  display: flex;
+  justify-content: flex-end;
+}
+
+#creditsInfo a {
+  color: #000;
+  text-decoration: none;
+}
+
+#creditsInfo a:visited {
+  color: #000;
+  text-decoration: none;
 }
 
 /* LEVEL AND TIMER STYLES*/
@@ -47,11 +55,14 @@ html {
   display: grid;
   grid-template: "level timer";
   grid-template-columns: 2fr 3fr;
-  margin-top: 1em;
+  margin-top: 0.5em;
 }
 
 #level {
   grid-area: level;
+  align-items: center;
+  display: flex;
+  justify-content: center;
 }
 
 #timer {
@@ -60,6 +71,7 @@ html {
 
 /* PROGRESS BAR STYLES*/
 #progressBar {
+  align-items: center;
   display: flex;
   grid-area: progressBar;
   justify-content: space-evenly;
