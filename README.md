@@ -2,6 +2,10 @@
 
 A simple app in JavaScript designed to help the player to develop basic mental math skills.
 
+## Live
+
+[Link](https://etienne-bourganel.github.io/mental_math/)
+
 ## Roadmap
 
 1. One player game - played on terminal
