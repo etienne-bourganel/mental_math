@@ -23,3 +23,13 @@ enter.addEventListener("touchstart", () => {
   myTimer(timeLeft)
   displayInfo.innerHTML = "OK let's go!"
 })
+
+const touches = document.querySelectorAll("number")
+touches.forEach((touch) => {
+  touch.addEventListener("touchstart", manageTouch)
+})
+
+const manageTouch = (e) => {
+  const number = e.target
+  displayInfo(number.value)
+}
