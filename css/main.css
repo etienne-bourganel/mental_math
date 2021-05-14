@@ -1,10 +1,12 @@
 html {
+  background: rgb(195, 250, 254);
   font-family: Helvetica, sans-serif;
   text-align: center;
 }
 
 body {
-  height: 90vh;
+  height: 92vh;
+  margin-top: 0;
   overflow: hidden;
 }
 
@@ -16,7 +18,7 @@ body {
     "progressBar"
     "display"
     "keys";
-  grid-template-rows: 2fr 5fr 2fr 8fr 20fr;
+  grid-template-rows: 3fr 5fr 2fr 8fr 20fr;
   height: 100%;
   margin: 0.2em 0.2em;
   overflow: hidden;
@@ -34,29 +36,38 @@ body {
   grid-area: header;
   grid-template: "appTitle credits";
   grid-template-columns: 1fr 3fr;
-  margin-top: 0.4em;
+  margin-top: 0.8em;
   margin-bottom: 0.8em;
 }
 
 #appTitle {
   align-items: end;
+  color: rgb(250, 170, 234);
+  font-family: "Brush Script MT", cursive;
+  font-size: 1.8em;
   grid-area: appTitle;
+  margin-left: 0.2em;
+  text-shadow: 1px 1px 1px rgb(235, 24, 228);
   transform: rotate(-20deg);
 }
 
 #credits {
   align-items: start;
+  color: rgb(80, 80, 80);
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.8em;
   grid-area: credits;
   justify-content: flex-end;
+  text-shadow: 1px 1px 1px rgb(9, 91, 164);
 }
 
 #creditsInfo a {
-  color: #000;
+  color: rgb(80, 80, 80);
   text-decoration: none;
 }
 
 #creditsInfo a:visited {
-  color: #000;
+  color: rgb(80, 80, 80);
   text-decoration: none;
 }
 
@@ -70,8 +81,10 @@ body {
 }
 
 .level {
-  font-size: 1.3em;
+  color: rgb(80, 80, 80);
+  font-size: 1.5em;
   grid-area: level;
+  font-style: italic;
 }
 
 /* TIMER STYLES*/
@@ -99,7 +112,7 @@ body {
 }
 
 .progress-bubble {
-  border-color: rgba(94, 94, 94, 0.5);
+  border-color: rgba(94, 94, 94, 0.3);
   border-radius: 1em;
   border-style: solid;
   border-width: 1px;
@@ -107,33 +120,42 @@ body {
   width: 1em;
 }
 
+.bubble-neutral {
+  background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.bubble-correct {
+  background-image: linear-gradient(to right, #1bf564 0%, #119f09 100%);
+}
+
+.bubble-incorrect {
+  background-image: linear-gradient(to right, #f23939 0%, #c10303 100%);
+}
+
 /* DISPLAY STYLES*/
 .display {
-  border-radius: 0.2em;
-  display: grid;
+  display: flex;
+  flex-direction: column;
   grid-area: display;
-  grid-template:
-    "displayInfo"
-    "displayUserInfo";
-  grid-template-rows: 2fr 3fr;
 }
 
 #displayInfo {
-  grid-area: displayInfo;
 }
 
 .display-info {
-  background-color: aqua;
+  font-family: "Courier New", Courier, monospace;
 }
 
 .display-input {
   background-color: rgb(81, 191, 191);
+  height: 2em;
+  width: 50%;
 }
 #displayUserInput {
-  grid-area: displayUserInfo;
 }
 
 .display-text {
+  font-size: 1.5em;
   margin: 0.1em;
 }
 
@@ -154,9 +176,14 @@ body {
 }
 .number-touch {
   align-items: center;
-  background-color: rgb(29, 28, 28);
+  background-color: #ff9999;
+  border-color: #ff6666;
+  border-style: solid;
+  border-width: 1px;
+  box-shadow: 1px 1px 3px;
   color: #fff;
   display: flex;
+  font-family: "Courier New", Courier, monospace;
   font-size: 2.2em;
   justify-content: center;
 }
@@ -167,13 +194,19 @@ body {
 }
 
 #clear {
-  background-color: #d77f14;
+  background-color: #af3416;
+  box-shadow: 1px 1px 3px;
+  color: #ffcccc;
+  font-family: "Courier New", Courier, monospace;
   font-size: 1.5em;
   grid-area: clear;
 }
 
 #enter {
-  background-color: #5bce14;
+  background-color: #224bd0;
+  box-shadow: 1px 1px 3px;
+  color: #ffcccc;
+  font-family: "Courier New", Courier, monospace;
   font-size: 1.5em;
   grid-area: space;
   text-orientation: upright;
