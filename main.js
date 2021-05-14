@@ -15,3 +15,11 @@ document.addEventListener("keyup", (e) => {
     myTimer(timeLeft)
   }
 })
+
+const displayInfo = document.getElementById("displayInfo")
+const enter = document.getElementById("enter")
+
+enter.addEventListener("ontouchstart", () => {
+  myTimer(timeLeft)
+  displayInfo.innerHTML = "OK let's go!"
+})
