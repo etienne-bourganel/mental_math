@@ -27,11 +27,11 @@ enter.addEventListener("touchstart", () => {
 const touches = document.querySelectorAll("number")
 touches.forEach((touch) => {
   touch.addEventListener("touchstart", () => {
-    displayInfo.innerHTML = "A touch has been touched!"
+    displayInfo.innerHTML = touch.value
   })
 })
 
-const one = document.getElementById("one")
-one.addEventListener("touchstart", () => {
-  displayInfo.innerHTML = "One has been pressed!"
-})
+// const one = document.getElementById("one")
+// one.addEventListener("touchstart", () => {
+//   displayInfo.innerHTML = "One has been pressed!"
+// })
