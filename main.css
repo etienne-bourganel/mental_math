@@ -12,7 +12,7 @@ html {
     "display"
     "keys";
   grid-template-rows: 2fr 5fr 2fr 8fr 20fr;
-  height: 95vh;
+  height: 100vh;
   margin: 0.2em 0.5em;
   overflow: hidden;
 }
