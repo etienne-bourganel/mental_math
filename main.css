@@ -2,9 +2,9 @@ html {
   font-family: Helvetica, sans-serif;
   text-align: center;
 }
-
 body {
-  height: 75vh;
+  height: 80vh;
+  overflow: hidden;
 }
 .main-container {
   display: grid;
@@ -15,8 +15,9 @@ body {
     "display"
     "keys";
   grid-template-rows: 2fr 5fr 2fr 8fr 20fr;
-  height: 75vh;
+  height: 85vh;
   margin: 0.2em 0.5em;
+  overflow: hidden;
 }
 
 /* HEADER STYLES*/
