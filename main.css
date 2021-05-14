@@ -13,7 +13,7 @@ html {
     "keys";
   grid-template-rows: 2fr 5fr 2fr 8fr 20fr;
   height: 80vh;
-  margin: 0.2em 0.5em 1em;
+  margin: 0.2em 0.5em;
 }
 
 /* HEADER STYLES*/
