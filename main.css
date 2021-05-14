@@ -12,8 +12,8 @@ html {
     "display"
     "keys";
   grid-template-rows: 3fr 5fr 2fr 8fr 20fr;
-  height: 98vh;
-  margin: 0 0.5em;
+  height: 92vh;
+  margin: 0.2em 0.5em 1em;
 }
 
 /* HEADER STYLES*/
@@ -22,7 +22,7 @@ html {
   grid-area: header;
   grid-template: "appTitle credits";
   grid-template-columns: 1fr 3fr;
-  margin-top: 0.5em;
+  margin-top: 0.2em;
 }
 
 #appTitle {
