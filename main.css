@@ -11,9 +11,9 @@ html {
     "progressBar"
     "display"
     "keys";
-  grid-template-rows: 3fr 5fr 2fr 8fr 20fr;
-  height: 98vh;
-  margin: 0 0.5em;
+  grid-template-rows: 2fr 5fr 2fr 8fr 20fr;
+  height: 80vh;
+  margin: 0.2em 0.5em 1em;
 }
 
 /* HEADER STYLES*/
@@ -22,7 +22,7 @@ html {
   grid-area: header;
   grid-template: "appTitle credits";
   grid-template-columns: 1fr 3fr;
-  margin-top: 0.5em;
+  margin-top: 0.2em;
 }
 
 #appTitle {
@@ -125,7 +125,7 @@ html {
     "zero clear clear space";
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(4, 1fr);
-  height: 96vw;
+  height: 80vw;
   margin-top: 1em;
 }
 .number-touch {
