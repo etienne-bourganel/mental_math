@@ -1,6 +1,6 @@
 // All imports
-import { level0 } from "./operations.js"
-import { myTimer, timer, timerOff } from "./timer.js"
+import { level0 } from "./js_modules/operations.js"
+import { myTimer, timer, timerOff } from "./js_modules/timer.js"
 
 // Declaration and initialization of main variables
 let timeLeft = 4

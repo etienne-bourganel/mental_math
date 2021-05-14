@@ -1,7 +1,7 @@
 export { myTimer, timer, timerOff }
 
 // Declaration of DOM elements
-const timer = document.querySelector("#timer")
+const timer = document.querySelector("#timerInfo")
 
 // Change the style of the timer depending on the situation
 const timerOff = () => {
