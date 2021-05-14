@@ -3,6 +3,11 @@ html {
   text-align: center;
 }
 
+body {
+  height: 90vh;
+  overflow: hidden;
+}
+
 .main-container {
   display: grid;
   grid-template:
@@ -12,7 +17,7 @@ html {
     "display"
     "keys";
   grid-template-rows: 2fr 5fr 2fr 8fr 20fr;
-  height: 100vh;
+  height: 100%;
   margin: 0.2em 0.5em;
   overflow: hidden;
 }
