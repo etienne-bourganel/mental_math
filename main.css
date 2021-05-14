@@ -11,8 +11,13 @@ html {
     "progressBar"
     "display"
     "keys";
+<<<<<<< HEAD
   grid-template-rows: 2fr 5fr 2fr 8fr 20fr;
   height: 80vh;
+=======
+  grid-template-rows: 3fr 5fr 2fr 8fr 20fr;
+  height: 92vh;
+>>>>>>> 263b6f2b3c8a70bcea9fe5f5c18b5c296471f437
   margin: 0.2em 0.5em 1em;
 }
 
