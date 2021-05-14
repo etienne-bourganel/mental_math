@@ -3,6 +3,9 @@ html {
   text-align: center;
 }
 
+body {
+  height: 75vh;
+}
 .main-container {
   display: grid;
   grid-template:
