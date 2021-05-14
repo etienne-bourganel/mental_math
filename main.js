@@ -31,5 +31,5 @@ touches.forEach((touch) => {
 
 const manageTouch = (e) => {
   const number = e.target
-  displayInfo(number.value)
+  displayInfo.innerHTML = number.value
 }
