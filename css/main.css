@@ -44,10 +44,11 @@ body {
   align-items: end;
   color: rgb(250, 170, 234);
   font-family: "Brush Script MT", cursive;
+  font-weight: 200;
   font-size: 1.8em;
   grid-area: appTitle;
   margin-left: 0.2em;
-  text-shadow: 1px 1px 1px rgb(235, 24, 228);
+  text-shadow: 1px 1px rgb(235, 24, 228);
   transform: rotate(-20deg);
 }
 
@@ -58,7 +59,6 @@ body {
   font-size: 0.8em;
   grid-area: credits;
   justify-content: flex-end;
-  text-shadow: 1px 1px 1px rgb(9, 91, 164);
 }
 
 #creditsInfo a {
@@ -112,7 +112,7 @@ body {
 }
 
 .progress-bubble {
-  border-color: rgba(94, 94, 94, 0.3);
+  border-color: rgb(250, 170, 234);
   border-radius: 1em;
   border-style: solid;
   border-width: 1px;
@@ -121,47 +121,52 @@ body {
 }
 
 .bubble-neutral {
-  background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  background-color: transparent;
 }
 
 .bubble-correct {
-  background-image: linear-gradient(to right, #1bf564 0%, #119f09 100%);
+  background-color: rgba(110, 252, 97, 0.7);
 }
 
 .bubble-incorrect {
-  background-image: linear-gradient(to right, #f23939 0%, #c10303 100%);
+  background-color: rgba(252, 97, 97, 0.7);
 }
 
 /* DISPLAY STYLES*/
 .display {
+  background: rgb(1, 54, 70);
+  border-color: rgb(250, 170, 234);
+  border-radius: 0.3em;
+  border-style: solid;
+  border-width: 1px;
   display: flex;
   flex-direction: column;
   grid-area: display;
-}
-
-#displayInfo {
-}
-
-.display-info {
-  font-family: "Courier New", Courier, monospace;
-}
-
-.display-input {
-  background-color: rgb(81, 191, 191);
-  height: 2em;
-  width: 50%;
-}
-#displayUserInput {
+  margin-top: 0.4em;
 }
 
 .display-text {
-  font-size: 1.5em;
-  margin: 0.1em;
+  color: rgb(250, 170, 234);
+}
+
+.display-info {
+  font-size: 1.2em;
+  font-weight: 100;
+  margin-top: 0.2em;
+}
+
+.display-input {
+  font-size: 1.4em;
+  font-weight: 400;
+  height: 2em;
+  width: 50%;
 }
 
 /* KEYS STYLES */
 #keys {
+  color: #fff;
   display: grid;
+  font-weight: 200;
   gap: 0.3em;
   grid-area: keys;
   grid-template:
@@ -176,15 +181,10 @@ body {
 }
 .number-touch {
   align-items: center;
-  background-color: #ff9999;
-  border-color: #ff6666;
-  border-style: solid;
-  border-width: 1px;
-  box-shadow: 1px 1px 3px;
-  color: #fff;
+  background-color: #facdfa;
   display: flex;
-  font-family: "Courier New", Courier, monospace;
   font-size: 2.2em;
+
   justify-content: center;
 }
 
@@ -194,19 +194,13 @@ body {
 }
 
 #clear {
-  background-color: #af3416;
-  box-shadow: 1px 1px 3px;
-  color: #ffcccc;
-  font-family: "Courier New", Courier, monospace;
+  background-color: #f290e3;
   font-size: 1.5em;
   grid-area: clear;
 }
 
 #enter {
-  background-color: #224bd0;
-  box-shadow: 1px 1px 3px;
-  color: #ffcccc;
-  font-family: "Courier New", Courier, monospace;
+  background-color: rgb(250, 170, 234);
   font-size: 1.5em;
   grid-area: space;
   text-orientation: upright;
