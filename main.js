@@ -24,7 +24,7 @@ enter.addEventListener("touchstart", () => {
   displayInfo.innerHTML = "OK let's go!"
 })
 
-const touches = document.querySelectorAll("number")
+const touches = document.querySelectorAll(".number")
 touches.forEach((touch) => {
   touch.addEventListener("touchstart", () => {
     displayInfo.innerHTML = touch.value
