@@ -2,10 +2,12 @@ html {
   font-family: Helvetica, sans-serif;
   text-align: center;
 }
-body {
-  height: 80vh;
+
+/* body {
+  height: 85vh;
   overflow: hidden;
-}
+} */
+
 .main-container {
   display: grid;
   grid-template:
