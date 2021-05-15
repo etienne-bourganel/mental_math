@@ -192,6 +192,7 @@ body {
 .number {
   background-color: transparent;
   height: 100%;
+  touch-action: manipulation;
   width: 100%;
 }
 
@@ -200,6 +201,7 @@ body {
   border-radius: 0.3em;
   border-style: solid;
   border-width: 1px;
+  touch-action: manipulation;
 }
 
 #clear {
