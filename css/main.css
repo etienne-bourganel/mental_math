@@ -8,6 +8,8 @@ body {
   height: 90vh;
   margin-top: 0;
   overflow: hidden;
+
+  touch-action: manipulation;
 }
 
 .main-container {
