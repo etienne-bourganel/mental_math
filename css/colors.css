@@ -1,0 +1,91 @@
+html {
+  background: #aee1e1;
+}
+
+/* HEADER STYLES*/
+#appTitle {
+  color: #fc72a9;
+  text-shadow: 1px 1px rgb(118, 9, 114);
+}
+
+#credits {
+  color: #12606d;
+}
+
+#creditsInfo a {
+  color: #12606d;
+}
+
+#creditsInfo a:visited {
+  color: #12606d;
+}
+
+/* LEVEL AND TIMER STYLES*/
+.level {
+  color: #12606d;
+}
+
+/* TIMER STYLES*/
+.timer {
+  background-color: transparent;
+}
+
+.timer-off {
+  color: #12606d;
+}
+
+.timer-on {
+  color: #ce3521;
+}
+
+/* PROGRESS BAR STYLES*/
+.progress-bubble {
+  border-color: #79c6d3;
+}
+
+.bubble-neutral {
+  background-color: transparent;
+}
+
+.bubble-correct {
+  background-color: #81b214;
+}
+
+.bubble-incorrect {
+  background-color: #f55c47;
+}
+
+/* DISPLAY STYLES*/
+.display {
+  background: #d3e0dc;
+  border-color: #79c6d3;
+}
+
+.display-text {
+  color: #12606d;
+}
+
+/* KEYS STYLES */
+#keys {
+  color: #12606d;
+}
+.number-touch {
+  background-color: #ece2e1;
+}
+
+.number {
+  background-color: transparent;
+}
+
+.other-touch,
+.number-touch {
+  border-color: #79c6d3;
+}
+
+#clear {
+  background-color: #fcd1d1;
+}
+
+#enter {
+  background-color: #fcd1d1;
+}
