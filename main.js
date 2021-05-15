@@ -16,22 +16,46 @@ document.addEventListener("keyup", (e) => {
   }
 })
 
+// Declarations of DOM elements
 const displayInfo = document.getElementById("displayInfo")
 const enter = document.getElementById("enter")
+const displayUserInput = document.getElementById("displayUserInput")
+const clear = document.getElementById("clear")
 
+// Declarations of user input values
+let userInputArr = []
+let userInputNmr
+
+// Launch timer and display message when Enter is pressed
 enter.addEventListener("touchstart", () => {
   myTimer(timeLeft)
   displayInfo.innerHTML = "OK let's go!"
 })
 
+// Update user input for every number pressed and display it
 const touches = document.querySelectorAll(".number")
 touches.forEach((touch) => {
   touch.addEventListener("touchstart", () => {
-    displayInfo.innerHTML = touch.value
+    const userInputDigit = touch.innerHTML
+    updateUserInput(Number(userInputDigit))
+    updateDisplayUserInput()
   })
 })
 
-// const one = document.getElementById("one")
-// one.addEventListener("touchstart", () => {
-//   displayInfo.innerHTML = "One has been pressed!"
-// })
+// Reset the user input to 0 and display it
+clear.addEventListener("touchstart", () => {
+  userInputArr = []
+  userInputNmr = 0
+  updateDisplayUserInput()
+})
+
+// Update user input
+const updateUserInput = (value) => {
+  userInputArr.push(value)
+  userInputNmr = Number(userInputArr.join(""))
+}
+
+// Update display for user input
+const updateDisplayUserInput = () => {
+  displayUserInput.innerHTML = userInputNmr
+}

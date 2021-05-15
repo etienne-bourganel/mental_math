@@ -188,6 +188,12 @@ body {
   justify-content: center;
 }
 
+/* .number {
+  background-color: #d71414;
+  height: 100%;
+  width: 100%;
+} */
+
 .other-touch,
 .number-touch {
   border-radius: 0.2em;
