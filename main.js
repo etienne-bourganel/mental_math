@@ -32,6 +32,10 @@ enter.addEventListener("touchstart", () => {
   displayInfo.innerHTML = "OK let's go!"
 })
 
+enter.addEventListener("click", (e) => {
+  e.preventDefault()
+})
+
 // Update user input for every number pressed and display it
 const touches = document.querySelectorAll(".number")
 touches.forEach((touch) => {
@@ -50,6 +54,10 @@ clear.addEventListener("touchstart", () => {
   userInputArr = []
   userInputNmr = 0
   updateDisplayUserInput()
+})
+
+clear.addEventListener("click", (e) => {
+  e.preventDefault()
 })
 
 // Update user input
