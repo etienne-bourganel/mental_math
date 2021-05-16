@@ -1,5 +1,4 @@
 html {
-  background: rgb(195, 250, 254);
   font-family: Helvetica, sans-serif;
   text-align: center;
 }
@@ -43,7 +42,6 @@ body {
 
 #appTitle {
   align-items: end;
-  color: rgb(250, 170, 234);
   font-family: "Brush Script MT", cursive;
   font-weight: 200;
   font-size: 2.5em;
@@ -56,7 +54,6 @@ body {
 
 #credits {
   align-items: start;
-  color: rgb(80, 80, 80);
   font-family: "Courier New", Courier, monospace;
   font-size: 1em;
   grid-area: credits;
@@ -65,12 +62,10 @@ body {
 }
 
 #creditsInfo a {
-  color: rgb(80, 80, 80);
   text-decoration: none;
 }
 
 #creditsInfo a:visited {
-  color: rgb(80, 80, 80);
   text-decoration: none;
 }
 
@@ -83,7 +78,6 @@ body {
 }
 
 .level {
-  color: rgb(80, 80, 80);
   font-size: 1.5em;
   grid-area: level;
   font-style: italic;
@@ -92,16 +86,8 @@ body {
 /* TIMER STYLES*/
 .timer {
   box-sizing: border-box;
-  color: #fff;
   font-size: 3em;
   grid-area: timer;
-}
-.timer-off {
-  color: #12606d;
-}
-
-.timer-on {
-  color: #d71414;
 }
 
 /* PROGRESS BAR STYLES*/
@@ -114,7 +100,6 @@ body {
 }
 
 .progress-bubble {
-  border-color: rgb(250, 170, 234);
   border-radius: 1em;
   border-style: solid;
   border-width: 1px;
@@ -122,32 +107,14 @@ body {
   width: 1em;
 }
 
-.bubble-neutral {
-  background-color: transparent;
-}
-
-.bubble-correct {
-  background-color: rgba(110, 252, 97, 0.7);
-}
-
-.bubble-incorrect {
-  background-color: rgba(252, 97, 97, 0.7);
-}
-
 /* DISPLAY STYLES*/
 .display {
-  background: rgb(112, 188, 211);
-  border-color: rgb(250, 170, 234);
   border-radius: 0.3em;
   border-style: solid;
   border-width: 1px;
   height: 7em;
   grid-area: display;
   margin-top: 0.4em;
-}
-
-.display-text {
-  color: rgb(249, 215, 242);
 }
 
 .display-info {
@@ -165,7 +132,6 @@ body {
 
 /* KEYS STYLES */
 #keys {
-  color: #fff;
   display: grid;
   font-weight: 200;
   gap: 0.3em;
@@ -183,20 +149,16 @@ body {
 }
 .number-touch {
   align-items: center;
-  background-color: #facdfa;
   border-style: solid;
   border-width: 1px;
   display: flex;
   font-size: 2.2em;
   font-weight: 200;
   justify-content: center;
-  touch-action: manipulation;
 }
 
 .number {
-  background-color: transparent;
   height: 100%;
-  touch-action: manipulation;
   width: 100%;
 }
 
@@ -205,17 +167,14 @@ body {
   border-radius: 0.3em;
   border-style: solid;
   border-width: 1px;
-  touch-action: manipulation;
 }
 
 #clear {
-  background-color: #f290e3;
   font-size: 1.5em;
   grid-area: clear;
 }
 
 #enter {
-  background-color: rgb(250, 170, 234);
   font-size: 1.5em;
   grid-area: space;
   text-orientation: upright;

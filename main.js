@@ -40,6 +40,9 @@ touches.forEach((touch) => {
     updateUserInput(Number(userInputDigit))
     updateDisplayUserInput()
   })
+  touch.addEventListener("click", (e) => {
+    e.preventDefault()
+  })
 })
 
 // Reset the user input to 0 and display it
