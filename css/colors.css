@@ -8,14 +8,6 @@ html {
   text-shadow: 2px 2px 2px rgb(118, 9, 114);
 }
 
-#creditsInfo a {
-  color: rgb(118, 9, 114);
-}
-
-#creditsInfo a:visited {
-  color: rgb(118, 9, 114);
-}
-
 /* LEVEL AND TIMER STYLES*/
 .level {
   color: #12606d;

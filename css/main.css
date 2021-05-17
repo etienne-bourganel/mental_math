@@ -6,6 +6,7 @@ html {
 
 body {
   margin-top: 0;
+  overflow: hidden;
 }
 
 .top-container {
@@ -25,6 +26,7 @@ body {
     "keys";
   grid-template-rows: 4fr 1fr 3fr 50%;
   height: 95%;
+  overflow: hidden;
 }
 
 .center-box {
@@ -37,9 +39,7 @@ body {
 .header {
   display: grid;
   grid-area: header;
-  grid-template:
-    "appTitle credits"
-    "appTitle levelTimer";
+  grid-template: "appTitle levelTimer";
   grid-template-columns: 1fr 3fr;
   margin-top: 0.8em;
   margin-bottom: 0.8em;
@@ -54,24 +54,6 @@ body {
   margin-left: 0.2em;
   padding: 0.2em;
   transform: rotate(-20deg);
-}
-
-#creditsInfo {
-  align-items: start;
-  font-family: "Courier New", Courier, monospace;
-  font-size: 1em;
-  font-style: italic;
-  grid-area: credits;
-  justify-content: flex-end;
-  margin-right: 0.6em;
-}
-
-#creditsInfo a {
-  text-decoration: none;
-}
-
-#creditsInfo a:visited {
-  text-decoration: none;
 }
 
 /* LEVEL AND TIMER STYLES*/
