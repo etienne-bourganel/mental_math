@@ -26,8 +26,8 @@ function myTimer(timeLeft) {
       clearInterval(startTimer)
       return timerEnd()
     } else {
-      timer.innerHTML = timeLeft.toFixed(2)
-      timeLeft -= 0.01
+      timeLeft -= 0.1
+      timer.innerHTML = Math.abs(timeLeft).toFixed(1)
     }
-  }, 10)
+  }, 100)
 }
