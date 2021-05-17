@@ -10,21 +10,21 @@ body {
 
 .top-container {
   box-sizing: border-box;
-  height: 80vh;
+  height: 90vh;
   padding: 0.5em;
   overflow: hidden;
 }
+
 .main-container {
   box-sizing: border-box;
   display: grid;
   grid-template:
     "header"
-    "levelTimer"
     "progressBar"
     "display"
     "keys";
-  grid-template-rows: 2fr 2fr 1fr 3fr 50%;
-  height: 100%;
+  grid-template-rows: 4fr 1fr 3fr 50%;
+  height: 95%;
 }
 
 .center-box {
@@ -37,7 +37,9 @@ body {
 .header {
   display: grid;
   grid-area: header;
-  grid-template: "appTitle credits";
+  grid-template:
+    "appTitle credits"
+    "appTitle levelTimer";
   grid-template-columns: 1fr 3fr;
   margin-top: 0.8em;
   margin-bottom: 0.8em;
@@ -47,17 +49,18 @@ body {
   align-items: end;
   font-family: "Pacifico", cursive;
   font-weight: 200;
-  font-size: 2.5em;
+  font-size: 3em;
   grid-area: appTitle;
   margin-left: 0.2em;
   padding: 0.2em;
   transform: rotate(-20deg);
 }
 
-#credits {
+#creditsInfo {
   align-items: start;
   font-family: "Courier New", Courier, monospace;
   font-size: 1em;
+  font-style: italic;
   grid-area: credits;
   justify-content: flex-end;
   margin-right: 0.6em;
@@ -75,7 +78,9 @@ body {
 #levelTimer {
   grid-area: levelTimer;
   display: grid;
-  grid-template: "level timer";
+  grid-template:
+    "level"
+    "timer";
   grid-template-columns: 2fr 3fr;
 }
 
@@ -83,13 +88,15 @@ body {
   font-size: 1.5em;
   grid-area: level;
   font-style: italic;
+  margin-top: 0.5em;
 }
 
 /* TIMER STYLES*/
 .timer {
   box-sizing: border-box;
-  font-size: 3em;
+  font-size: 4em;
   grid-area: timer;
+  margin-top: 0.3em;
 }
 
 /* PROGRESS BAR STYLES*/
@@ -114,7 +121,6 @@ body {
   border-radius: 0.6em;
   border-style: solid;
   border-width: 1px;
-  /* height: 7em; */
   grid-area: display;
   margin-top: 0.4em;
 }
@@ -122,14 +128,14 @@ body {
 .display-info {
   font-size: 2em;
   font-weight: 100;
-  /* height: 40%; */
+  height: 40%;
   margin-top: 0.2em;
 }
 
 .display-input {
   font-size: 3em;
   font-weight: 400;
-  /* height: 60%; */
+  height: 60%;
 }
 
 /* KEYS STYLES */
@@ -145,7 +151,6 @@ body {
     "zero clear clear enter";
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(4, 1fr);
-  /* height: var(--intViewportHeight/4); */
   margin-top: 0.3em;
   touch-action: manipulation;
 }
