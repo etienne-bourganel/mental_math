@@ -2,27 +2,27 @@
 import { level0 } from "./js_modules/operations.js"
 import { myTimer, timer, timerOff } from "./js_modules/timer.js"
 
-// Declaration and initialization of main variables
+// Declare and initialize main variables
 let timeLeft = 4
 
 // Prepare the timer
 timerOff()
 timer.innerHTML = timeLeft.toFixed(2)
 
-// Reads the value of the input userAnswer when the Return key is up
+// Read the value of the input userAnswer when the Return key is up
 document.addEventListener("keyup", (e) => {
   if (e.key === " ") {
     myTimer(timeLeft)
   }
 })
 
-// Declarations of DOM elements
+// Declare DOM elements
 const displayInfo = document.getElementById("displayInfo")
 const enter = document.getElementById("enter")
 const displayUserInput = document.getElementById("displayUserInput")
 const clear = document.getElementById("clear")
 
-// Declarations of user input values
+// Declare user input values
 let userInputArr = []
 let userInputNmr
 

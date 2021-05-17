@@ -5,7 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Mental Math</title>
     <meta name="description" content="" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1,user-scalable=0"/>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1,user-scalable=0"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./css/reset.css" />
     <link rel="stylesheet" href="./css/main.css" />
     <link rel="stylesheet" href="./css/colors.css" />
@@ -14,84 +22,87 @@
   </head>
 
   <body>
-    <div class="main-container">
-      <div class="header">
-        <div class="center-box" id="appTitle">
-          <div id="titleInfo">
-            <div>Mental</div>
-            <div>Math</div>
+    <div class="top-container">
+      <div class="main-container">
+        <div class="header">
+          <div class="center-box" id="appTitle">
+            <div id="titleInfo">
+              <div>Mental</div>
+              <div>Math</div>
+            </div>
+          </div>
+          <div class="center-box" id="credits">
+            <div id="creditsInfo">
+              <a href="https://github.com/etienne-bourganel" target="_blank"
+                >Made by Etienne</a
+              >
+            </div>
           </div>
         </div>
-        <div class="center-box" id="credits">
-          <div id="creditsInfo">
-            <a href="https://github.com/etienne-bourganel" target="_blank">Made with &#10084 by Etienne</a>
+        <div id="levelTimer">
+          <div class="level center-box">
+            <div id="levelInfo">No double-click</div>
+          </div>
+          <div class="timer center-box">
+            <div id="timerInfo"></div>
           </div>
         </div>
-      </div>
-      <div id="levelTimer">
-        <div class="level center-box">
-          <div id="levelInfo">No double-click</div>
+        <div class="progressBar">
+          <div id="b0" class="progress-bubble bubble-correct"></div>
+          <div id="b1" class="progress-bubble bubble-incorrect"></div>
+          <div id="b2" class="progress-bubble bubble-neutral"></div>
+          <div id="b3" class="progress-bubble bubble-neutral"></div>
+          <div id="b4" class="progress-bubble bubble-neutral"></div>
+          <div id="b5" class="progress-bubble"></div>
+          <div id="b6" class="progress-bubble"></div>
+          <div id="b7" class="progress-bubble"></div>
+          <div id="b8" class="progress-bubble"></div>
+          <div id="b9" class="progress-bubble"></div>
         </div>
-        <div class="timer center-box">
-          <div id="timerInfo"></div>
+        <div class="display">
+          <div class="center-box display-text display-info" id="displayInfo">
+            Press ENTER to Start
+          </div>
+          <div
+            class="center-box display-text display-input"
+            id="displayUserInput"
+          >
+            0
+          </div>
         </div>
-      </div>
-      <div class="progressBar">
-        <div id="b0" class="progress-bubble bubble-correct"></div>
-        <div id="b1" class="progress-bubble bubble-incorrect"></div>
-        <div id="b2" class="progress-bubble bubble-neutral"></div>
-        <div id="b3" class="progress-bubble bubble-neutral"></div>
-        <div id="b4" class="progress-bubble bubble-neutral"></div>
-        <div id="b5" class="progress-bubble"></div>
-        <div id="b6" class="progress-bubble"></div>
-        <div id="b7" class="progress-bubble"></div>
-        <div id="b8" class="progress-bubble"></div>
-        <div id="b9" class="progress-bubble"></div>
-      </div>
-      <div class="display">
-        <div class="center-box display-text display-info">
-          <div class="center-box" id="displayInfo">Press ENTER to Start</div>
-        </div>
-        <div class="center-box display-text display-input">
-          <div class="center-box" id="displayUserInput">0</div>
-        </div>
-      </div>
-      <div id="keys">
-        <div data-key="27" class="center-box other-touch" id="clear">
-          <div class="center-box clear">CLEAR</div>
-        </div>
-        <div data-key="32" class="center-box other-touch" id="enter">
-          <div class="center-box enter">ENTER</div>
-        </div>
-        <div data-key="48" id="zero" value="0" class="number-touch">
-          <div class="center-box number">0</div>
-        </div>
-        <div data-key="49" id="one" value="1" class="number-touch">
-          <div class="center-box number">1</div>
-        </div>
-        <div data-key="50" id="two" value="2" class="number-touch">
-          <div class="center-box number">2</div>
-        </div>
-        <div data-key="51" id="three" value="3" class="number-touch">
-          <div class="center-box number">3</div>
-        </div>
-        <div data-key="52" id="four" value="4" class="number-touch">
-          <div class="center-box number">4</div>
-        </div>
-        <div data-key="53" id="five" value="5" class="number-touch">
-          <div class="center-box number">5</div>
-        </div>
-        <div data-key="54" id="six" value="6" class="number-touch">
-          <div class="center-box number">6</div>
-        </div>
-        <div data-key="55" id="seven" value="7" class="number-touch">
-          <div class="center-box number">7</div>
-        </div>
-        <div data-key="56" id="eight" value="8" class="number-touch">
-          <div class="center-box number">8</div>
-        </div>
-        <div data-key="57" id="nine" value="9" class="number-touch">
-          <div class="center-box number">9</div>
+        <div id="keys">
+          <div data-key="27" id="clear" class="center-box touch">CLEAR</div>
+          <div data-key="32" id="enter" class="center-box touch">ENTER</div>
+          <div data-key="48" id="zero" value="0" class="center-box number">
+            0
+          </div>
+          <div data-key="49" id="one" value="1" class="center-box number">
+            1
+          </div>
+          <div data-key="50" id="two" value="2" class="center-box number">
+            2
+          </div>
+          <div data-key="51" id="three" value="3" class="center-box number">
+            3
+          </div>
+          <div data-key="52" id="four" value="4" class="center-box number">
+            4
+          </div>
+          <div data-key="53" id="five" value="5" class="center-box number">
+            5
+          </div>
+          <div data-key="54" id="six" value="6" class="center-box number">
+            6
+          </div>
+          <div data-key="55" id="seven" value="7" class="center-box number">
+            7
+          </div>
+          <div data-key="56" id="eight" value="8" class="center-box number">
+            8
+          </div>
+          <div data-key="57" id="nine" value="9" class="center-box number">
+            9
+          </div>
         </div>
       </div>
     </div>

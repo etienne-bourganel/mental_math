@@ -5,7 +5,7 @@ html {
 /* HEADER STYLES*/
 #appTitle {
   color: #fc72a9;
-  text-shadow: 1px 1px rgb(118, 9, 114);
+  text-shadow: 2px 2px 2px rgb(118, 9, 114);
 }
 
 #credits {
@@ -69,16 +69,12 @@ html {
 #keys {
   color: #12606d;
 }
-.number-touch {
+.number {
   background-color: #ece2e1;
 }
 
+.touch,
 .number {
-  background-color: transparent;
-}
-
-.other-touch,
-.number-touch {
   border-color: #79c6d3;
 }
 
