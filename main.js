@@ -16,7 +16,7 @@ import {
 export { displayInfo, userInputNmr, round, gameOver }
 
 // Declare and initialize main variables
-let timeLeft = 30
+let timeLeft = 20
 let round = 0
 
 // Prepare the timer
@@ -34,7 +34,7 @@ let userInputArr = []
 let userInputNmr
 
 // Define what the ENTER touch does
-enter.addEventListener("touchstart", () => {
+enter.addEventListener("click", () => {
   if (timerStatus == 0) {
     startGame()
   } else {
@@ -86,7 +86,7 @@ enter.addEventListener("click", (e) => {
 // Update user input for every number pressed and display it
 const touches = document.querySelectorAll(".number")
 touches.forEach((touch) => {
-  touch.addEventListener("touchstart", () => {
+  touch.addEventListener("click", () => {
     const userInputDigit = touch.innerHTML
     updateUserInput(Number(userInputDigit))
     updateDisplayUserInput()
@@ -98,7 +98,7 @@ touches.forEach((touch) => {
 })
 
 // Reset the user input to 0 and display it
-clear.addEventListener("touchstart", () => {
+clear.addEventListener("click", () => {
   clearInput()
 })
 

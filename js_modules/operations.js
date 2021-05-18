@@ -1,4 +1,4 @@
-export { oneQuestionLevel0, feedback, round, score }
+export { oneQuestionLevel0, feedback, round, score, resetScore }
 import { displayInfo, userInputNmr, round } from "../main.js"
 
 // All basic operations
