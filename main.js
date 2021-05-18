@@ -1,19 +1,27 @@
 // All imports
-import { level0, feedback } from "./js_modules/operations.js"
-import { myTimer, timer, timerOff } from "./js_modules/timer.js"
+import {
+  feedback,
+  oneQuestionLevel0,
+  score,
+  resetScore,
+} from "./js_modules/operations.js"
+import {
+  myTimer,
+  timerOff,
+  updateTimer,
+  timerStatus,
+} from "./js_modules/timer.js"
 
 // All exports
-export { displayInfo, userInputNmr }
+export { displayInfo, userInputNmr, round, gameOver }
 
 // Declare and initialize main variables
-let timeLeft = 11
-let timerStatus = 0
-let score = 0
+let timeLeft = 30
 let round = 0
 
 // Prepare the timer
 timerOff()
-timer.innerHTML = timeLeft.toFixed(1)
+updateTimer(timeLeft)
 
 // Declare DOM elements
 const displayInfo = document.getElementById("displayInfo")
@@ -21,41 +29,56 @@ const enter = document.getElementById("enter")
 const displayUserInput = document.getElementById("displayUserInput")
 const clear = document.getElementById("clear")
 
-// Update progress bubble
-const updateBubble = (i, feedback) => {
-  const bubble = document.getElementById(`b${i}`)
-  if (feedback) {
-    bubble.classList.add("bubble-correct")
-  } else {
-    bubble.classList.add("bubble-incorrect")
-  }
-}
-
 // Declare user input values
 let userInputArr = []
 let userInputNmr
 
-// Launch timer and display message when Enter is pressed
-enter.addEventListener("click", () => {
+// Define what the ENTER touch does
+enter.addEventListener("touchstart", () => {
   if (timerStatus == 0) {
-    myTimer(timeLeft)
-    timerStatus = 1
-    level0()
+    startGame()
   } else {
-    if (round <= 9) {
-      if (feedback()) {
-        score += 1
-        updateBubble(round, 1)
-      } else {
-        updateBubble(round, 0)
-      }
-      clearInput()
-      level0()
+    feedback()
+    if (playerWins()) {
+      return
+    }
+    if (continueGame) {
       round += 1
+      clearInput()
+      oneQuestionLevel0()
+    } else {
+      gameOver()
     }
   }
 })
 
+const continueGame = () => {
+  if (round < 10 && timerStatus) {
+    return true
+  }
+}
+
+const playerWins = () => {
+  if (score == 10 && timerStatus) {
+    displayInfo.innerHTML = "Victory!"
+    return 1
+  }
+}
+
+const gameOver = () => {
+  displayInfo.innerHTML = "Press ENTER to start"
+  displayUserInput.innerHTML = "Game over."
+  round = 0
+  resetScore()
+  return
+}
+
+const startGame = () => {
+  myTimer(timeLeft)
+  oneQuestionLevel0()
+}
+
+// eventListener to avoid double tap to trigger zoom on mobile
 enter.addEventListener("click", (e) => {
   e.preventDefault()
 })
@@ -63,7 +86,7 @@ enter.addEventListener("click", (e) => {
 // Update user input for every number pressed and display it
 const touches = document.querySelectorAll(".number")
 touches.forEach((touch) => {
-  touch.addEventListener("click", () => {
+  touch.addEventListener("touchstart", () => {
     const userInputDigit = touch.innerHTML
     updateUserInput(Number(userInputDigit))
     updateDisplayUserInput()
@@ -75,7 +98,7 @@ touches.forEach((touch) => {
 })
 
 // Reset the user input to 0 and display it
-clear.addEventListener("click", () => {
+clear.addEventListener("touchstart", () => {
   clearInput()
 })
 

@@ -1,7 +1,9 @@
-export { myTimer, timer, timerOff }
-
+export { myTimer, timer, timerOff, updateTimer, timerStatus }
+import { gameOver } from "../main.js"
 // Declaration of DOM elements
 const timer = document.querySelector("#timerInfo")
+
+let timerStatus = 0
 
 // Change the style of the timer depending on the situation
 const timerOff = () => {
@@ -17,10 +19,13 @@ const timerOn = () => {
 // What to do when time is out
 const timerEnd = () => {
   timerOff()
+  timerStatus = 0
+  gameOver()
 }
 // Start the timer and update the style and game info
 function myTimer(timeLeft) {
   timerOn()
+  timerStatus = 1
   const startTimer = setInterval(() => {
     if (timeLeft <= 0) {
       clearInterval(startTimer)
