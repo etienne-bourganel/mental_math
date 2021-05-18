@@ -26,8 +26,14 @@ function myTimer(timeLeft) {
       clearInterval(startTimer)
       return timerEnd()
     } else {
+      updateTimer(timeLeft)
       timeLeft -= 0.1
-      timer.innerHTML = Math.abs(timeLeft).toFixed(1)
     }
   }, 100)
+}
+
+// Update the timer with specific length
+const updateTimer = (timeLeft) => {
+  const formattedTimeLeft = Math.abs(timeLeft).toFixed(1).padStart(4, "0")
+  timer.innerHTML = formattedTimeLeft
 }

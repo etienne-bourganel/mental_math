@@ -6,7 +6,7 @@ import { myTimer, timer, timerOff } from "./js_modules/timer.js"
 export { displayInfo, userInputNmr }
 
 // Declare and initialize main variables
-let timeLeft = 20
+let timeLeft = 11
 let timerStatus = 0
 let score = 0
 let round = 0
@@ -36,7 +36,7 @@ let userInputArr = []
 let userInputNmr
 
 // Launch timer and display message when Enter is pressed
-enter.addEventListener("touchstart", () => {
+enter.addEventListener("click", () => {
   if (timerStatus == 0) {
     myTimer(timeLeft)
     timerStatus = 1
@@ -63,7 +63,7 @@ enter.addEventListener("click", (e) => {
 // Update user input for every number pressed and display it
 const touches = document.querySelectorAll(".number")
 touches.forEach((touch) => {
-  touch.addEventListener("touchstart", () => {
+  touch.addEventListener("click", () => {
     const userInputDigit = touch.innerHTML
     updateUserInput(Number(userInputDigit))
     updateDisplayUserInput()
@@ -75,7 +75,7 @@ touches.forEach((touch) => {
 })
 
 // Reset the user input to 0 and display it
-clear.addEventListener("touchstart", () => {
+clear.addEventListener("click", () => {
   clearInput()
 })
 
