@@ -1,6 +1,6 @@
 // All exports and exports
 export { oneQuestionLevel0, feedback, round, score, resetScore }
-import { displayInfo, userInputNmr, round } from "../main.js"
+import { userInputNmr, round } from "../main.js"
 import { updateBubble, displayAddition } from "./display.js"
 
 // All basic operations

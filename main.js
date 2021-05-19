@@ -5,16 +5,17 @@ import {
   score,
   resetScore,
 } from "./js_modules/operations.js"
+import { myTimer, timerStatus, resetTimer } from "./js_modules/timer.js"
 import {
-  myTimer,
   timerOff,
   updateTimer,
-  timerStatus,
-  resetTimer,
-} from "./js_modules/timer.js"
+  displayGameOver,
+  displayVictory,
+  updateDisplayUserInput,
+} from "./js_modules/display.js"
 
 // All exports
-export { displayInfo, userInputNmr, round, gameOver }
+export { userInputNmr, round }
 
 // Declare and initialize main variables
 let timeLeft = 20
@@ -25,9 +26,7 @@ timerOff()
 updateTimer(timeLeft)
 
 // Declare DOM elements
-const displayInfo = document.getElementById("displayInfo")
 const enter = document.getElementById("enter")
-const displayUserInput = document.getElementById("displayUserInput")
 const clear = document.getElementById("clear")
 
 // Declare user input values
@@ -41,7 +40,7 @@ enter.addEventListener("click", () => {
   } else {
     feedback()
     if (playerWins()) {
-      displayInfo.innerHTML = "Victory!"
+      displayVictory()
       return
     }
     if (continueGame) {
@@ -49,15 +48,10 @@ enter.addEventListener("click", () => {
       clearInput()
       oneQuestionLevel0()
     } else {
-      gameOver()
+      displayGameOver()
       resetGame()
     }
   }
-})
-
-const title = document.getElementById("titleInfo")
-title.addEventListener("click", () => {
-  clearBubbles()
 })
 
 //
@@ -88,12 +82,6 @@ const playerWins = () => {
   }
 }
 
-const gameOver = () => {
-  displayInfo.innerHTML = "Press ENTER to start"
-  displayUserInput.innerHTML = "Game over."
-  return
-}
-
 // Start the timer and trigger the first question
 const startGame = () => {
   myTimer(timeLeft)
@@ -114,7 +102,7 @@ touches.forEach((touch) => {
   touch.addEventListener("click", () => {
     const userInputDigit = touch.innerHTML
     updateUserInput(Number(userInputDigit))
-    updateDisplayUserInput()
+    updateDisplayUserInput(userInputNmr)
   })
   // eventListener to avoid double tap to trigger zoom on mobile
   touch.addEventListener("click", (e) => {
@@ -135,16 +123,11 @@ const updateUserInput = (value) => {
   }
 }
 
-// Update display for user input
-const updateDisplayUserInput = () => {
-  displayUserInput.innerHTML = userInputNmr
-}
-
 // Set the user input to "0" and update the display
 const clearInput = () => {
   userInputArr = []
   userInputNmr = 0
-  updateDisplayUserInput()
+  updateDisplayUserInput(userInputNmr)
 }
 
 // Remove all classes for each progress bubble
