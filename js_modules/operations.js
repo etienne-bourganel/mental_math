@@ -1,5 +1,7 @@
+// All exports and exports
 export { oneQuestionLevel0, feedback, round, score, resetScore }
 import { displayInfo, userInputNmr, round } from "../main.js"
+import { updateBubble, displayAddition } from "./display.js"
 
 // All basic operations
 const add = (a, b) => a + b
@@ -7,6 +9,7 @@ const sub = (a, b) => a - b
 const mul = (a, b) => a * b
 const div = (a, b) => a / b
 
+// Declaration of main variables
 let result
 let score = 0
 
@@ -19,30 +22,21 @@ const randomInteger = (min, max) => {
 const oneQuestionLevel0 = () => {
   const a = randomInteger(1, 20)
   const b = randomInteger(1, 20)
-  displayInfo.innerHTML = `${a} + ${b} ?`
   result = add(a, b)
+  displayAddition(a, b)
 }
 
+// Update score and progress bubble depending on user input
 const feedback = () => {
   if (result == userInputNmr) {
     score += 1
-    console.log(score)
     updateBubble(round, 1)
   } else {
     updateBubble(round, 0)
   }
 }
 
-// Update progress bubble
-const updateBubble = (i, feedback) => {
-  const bubble = document.getElementById(`b${i}`)
-  if (feedback) {
-    bubble.classList.add("bubble-correct")
-  } else {
-    bubble.classList.add("bubble-incorrect")
-  }
-}
-
+// Det the score to 0
 const resetScore = () => {
   score = 0
 }

@@ -1,4 +1,4 @@
-export { myTimer, timer, timerOff, updateTimer, timerStatus }
+export { myTimer, timer, timerOff, updateTimer, timerStatus, resetTimer }
 import { gameOver } from "../main.js"
 // Declaration of DOM elements
 const timer = document.querySelector("#timerInfo")
@@ -29,6 +29,7 @@ function myTimer(timeLeft) {
   const startTimer = setInterval(() => {
     if (timeLeft <= 0) {
       clearInterval(startTimer)
+      updateTimer(timeLeft)
       return timerEnd()
     } else {
       updateTimer(timeLeft)
@@ -41,4 +42,10 @@ function myTimer(timeLeft) {
 const updateTimer = (timeLeft) => {
   const formattedTimeLeft = Math.abs(timeLeft).toFixed(1).padStart(4, "0")
   timer.innerHTML = formattedTimeLeft
+}
+
+// Reste the timer to the starting time
+const resetTimer = (timeLeft) => {
+  timerEnd()
+  updateTimer(timeLeft)
 }

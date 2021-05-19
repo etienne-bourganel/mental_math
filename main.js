@@ -10,6 +10,7 @@ import {
   timerOff,
   updateTimer,
   timerStatus,
+  resetTimer,
 } from "./js_modules/timer.js"
 
 // All exports
@@ -40,6 +41,7 @@ enter.addEventListener("click", () => {
   } else {
     feedback()
     if (playerWins()) {
+      displayInfo.innerHTML = "Victory!"
       return
     }
     if (continueGame) {
@@ -48,19 +50,40 @@ enter.addEventListener("click", () => {
       oneQuestionLevel0()
     } else {
       gameOver()
+      resetGame()
     }
   }
 })
 
+const title = document.getElementById("titleInfo")
+title.addEventListener("click", () => {
+  clearBubbles()
+})
+
+//
+const resetGame = () => {
+  clearBubbles()
+  clearInput()
+  resetScore()
+  resetRound()
+  resetTimer()
+}
+
+// Reset the round number
+const resetRound = () => {
+  round = 0
+}
+
+// Returns true if game shoud continue
 const continueGame = () => {
   if (round < 10 && timerStatus) {
     return true
   }
 }
 
+// Set condition for winning the game
 const playerWins = () => {
   if (score == 10 && timerStatus) {
-    displayInfo.innerHTML = "Victory!"
     return 1
   }
 }
@@ -68,11 +91,10 @@ const playerWins = () => {
 const gameOver = () => {
   displayInfo.innerHTML = "Press ENTER to start"
   displayUserInput.innerHTML = "Game over."
-  round = 0
-  resetScore()
   return
 }
 
+// Start the timer and trigger the first question
 const startGame = () => {
   myTimer(timeLeft)
   oneQuestionLevel0()
@@ -80,6 +102,9 @@ const startGame = () => {
 
 // eventListener to avoid double tap to trigger zoom on mobile
 enter.addEventListener("click", (e) => {
+  e.preventDefault()
+})
+clear.addEventListener("click", (e) => {
   e.preventDefault()
 })
 
@@ -91,8 +116,8 @@ touches.forEach((touch) => {
     updateUserInput(Number(userInputDigit))
     updateDisplayUserInput()
   })
+  // eventListener to avoid double tap to trigger zoom on mobile
   touch.addEventListener("click", (e) => {
-    // eventListener to avoid double tap to trigger zoom on mobile
     e.preventDefault()
   })
 })
@@ -100,11 +125,6 @@ touches.forEach((touch) => {
 // Reset the user input to 0 and display it
 clear.addEventListener("click", () => {
   clearInput()
-})
-
-// eventListener to avoid double tap to trigger zoom on mobile
-clear.addEventListener("click", (e) => {
-  e.preventDefault()
 })
 
 // Update user input
@@ -120,8 +140,18 @@ const updateDisplayUserInput = () => {
   displayUserInput.innerHTML = userInputNmr
 }
 
+// Set the user input to "0" and update the display
 const clearInput = () => {
   userInputArr = []
   userInputNmr = 0
   updateDisplayUserInput()
+}
+
+// Remove all classes for each progress bubble
+const clearBubbles = () => {
+  const bubbles = document.querySelectorAll(".progress-bubble")
+  bubbles.forEach((bubble) => {
+    bubble.classList.remove("bubble-correct")
+    bubble.classList.remove("bubble-incorrect")
+  })
 }
