@@ -1,21 +1,20 @@
-export { myTimer, timerStatus, resetTimer }
+export { myTimer, timerIsOn, resetTimer }
 import { timerOn, timerOff, updateTimer, displayGameOver } from "./display.js"
 
 // Declaration of DOM elements
 
-let timerStatus = 0
+let timerIsOn = 0
 
 // What to do when time is out
 const timerEnd = () => {
   timerOff()
-  timerStatus = 0
-  displayGameOver()
+  timerIsOn = 0
 }
 
 // Start the timer and update the style and game info
 function myTimer(timeLeft) {
   timerOn()
-  timerStatus = 1
+  timerIsOn = 1
   const startTimer = setInterval(() => {
     if (timeLeft <= 0) {
       clearInterval(startTimer)

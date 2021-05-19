@@ -2,23 +2,26 @@
 import {
   feedback,
   oneQuestionLevel0,
-  score,
   resetScore,
+  score,
 } from "./js_modules/operations.js"
-import { myTimer, timerStatus, resetTimer } from "./js_modules/timer.js"
+
+import { myTimer, resetTimer, timerIsOn } from "./js_modules/timer.js"
+
 import {
-  timerOff,
-  updateTimer,
+  clearBubbles,
   displayGameOver,
   displayVictory,
+  timerOff,
   updateDisplayUserInput,
+  updateTimer,
 } from "./js_modules/display.js"
 
 // All exports
 export { userInputNmr, round }
 
 // Declare and initialize main variables
-let timeLeft = 20
+let timeLeft = 7
 let round = 0
 
 // Prepare the timer
@@ -33,28 +36,26 @@ const clear = document.getElementById("clear")
 let userInputArr = []
 let userInputNmr
 
-// Define what the ENTER touch does
+// Start the game when ENTER is pressed
 enter.addEventListener("click", () => {
-  if (timerStatus == 0) {
-    startGame()
-  } else {
-    feedback()
-    if (playerWins()) {
-      displayVictory()
-      return
-    }
-    if (continueGame) {
-      round += 1
-      clearInput()
-      oneQuestionLevel0()
-    } else {
-      displayGameOver()
-      resetGame()
-    }
-  }
+  startGame()
 })
 
-//
+// Start the timer and trigger the first question
+const startGame = () => {
+  myTimer(timeLeft)
+  oneSet()
+}
+
+// One set of X rounds
+const oneSet = async () => {
+  oneQuestionLevel0()
+  if (playerWins()) {
+    displayVictory()
+  } else displayGameOver()
+}
+
+// Reset game variables and styles
 const resetGame = () => {
   clearBubbles()
   clearInput()
@@ -70,31 +71,24 @@ const resetRound = () => {
 
 // Returns true if game shoud continue
 const continueGame = () => {
-  if (round < 10 && timerStatus) {
+  if (round < 9 && score < 10 && timerIsOn) {
+    return true
+  }
+}
+
+// Returns true if game should end
+const endGame = () => {
+  if (round == 9 || !timerIsOn) {
     return true
   }
 }
 
 // Set condition for winning the game
 const playerWins = () => {
-  if (score == 10 && timerStatus) {
+  if (score == 10 && timerIsOn) {
     return 1
   }
 }
-
-// Start the timer and trigger the first question
-const startGame = () => {
-  myTimer(timeLeft)
-  oneQuestionLevel0()
-}
-
-// eventListener to avoid double tap to trigger zoom on mobile
-enter.addEventListener("click", (e) => {
-  e.preventDefault()
-})
-clear.addEventListener("click", (e) => {
-  e.preventDefault()
-})
 
 // Update user input for every number pressed and display it
 const touches = document.querySelectorAll(".number")
@@ -130,11 +124,10 @@ const clearInput = () => {
   updateDisplayUserInput(userInputNmr)
 }
 
-// Remove all classes for each progress bubble
-const clearBubbles = () => {
-  const bubbles = document.querySelectorAll(".progress-bubble")
-  bubbles.forEach((bubble) => {
-    bubble.classList.remove("bubble-correct")
-    bubble.classList.remove("bubble-incorrect")
-  })
-}
+// eventListener to avoid double tap to trigger zoom on mobile
+enter.addEventListener("click", (e) => {
+  e.preventDefault()
+})
+clear.addEventListener("click", (e) => {
+  e.preventDefault()
+})

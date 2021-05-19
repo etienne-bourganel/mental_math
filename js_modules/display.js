@@ -1,12 +1,13 @@
 export {
-  updateBubble,
+  clearBubbles,
   displayAddition,
-  timerOn,
-  timerOff,
-  updateTimer,
   displayGameOver,
   displayVictory,
+  timerOff,
+  timerOn,
+  updateBubble,
   updateDisplayUserInput,
+  updateTimer,
 }
 
 // Update progress bubble
@@ -25,7 +26,6 @@ const displayAddition = (a, b) => {
 }
 
 // TIMER
-
 // Declare DOM variables
 const timer = document.querySelector("#timerInfo")
 
@@ -45,8 +45,17 @@ const updateTimer = (timeLeft) => {
   timer.innerHTML = formattedTimeLeft
 }
 
-// GAME INFO
+// PROGRESS BUBBLES
+// Remove all classes for each progress bubble
+const clearBubbles = () => {
+  const bubbles = document.querySelectorAll(".progress-bubble")
+  bubbles.forEach((bubble) => {
+    bubble.classList.remove("bubble-correct")
+    bubble.classList.remove("bubble-incorrect")
+  })
+}
 
+// GAME INFO
 // Declare DOM variables
 const displayInfo = document.getElementById("displayInfo")
 const displayUserInput = document.getElementById("displayUserInput")
@@ -58,8 +67,10 @@ const displayGameOver = () => {
   return
 }
 
+// Update message
 const displayVictory = () => {
-  displayInfo.innerHTML = "Victory!"
+  displayInfo.innerHTML = "Press ENTER to start"
+  displayUserInput.innerHTML = "Victory!"
 }
 
 // Update display for user input
