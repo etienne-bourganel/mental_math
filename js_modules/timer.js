@@ -1,4 +1,4 @@
-export { myTimer, timerIsOn, resetTimer }
+export { myTimer, timerIsOn, resetTimer, stopTimer }
 import { timerOn, timerOff, updateTimer } from "./display.js"
 import { startTime } from "../main.js"
 
@@ -18,9 +18,10 @@ function myTimer() {
   let timeLeft = startTime
   timerOn()
   timerIsOn = 1
-  const startTimer = setInterval(() => {
+  // Make startTimer global
+  window.startTimer = setInterval(() => {
     if (timeLeft <= 0) {
-      clearInterval(startTimer)
+      stopTimer()
       return timerEnd()
     } else {
       timeLeft -= 0.1
@@ -34,3 +35,14 @@ const resetTimer = (time) => {
   timerEnd()
   updateTimer(time)
 }
+
+// Stop the timer
+const stopTimer = () => {
+  clearInterval(startTimer)
+}
+
+// Provisory button to test stopTimer
+const logo = document.querySelector("#titleInfo")
+logo.addEventListener("click", () => {
+  stopTimer()
+})

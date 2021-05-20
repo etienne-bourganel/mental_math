@@ -2,6 +2,7 @@ export {
   clearBubbles,
   displayAddition,
   displayGameOver,
+  displayStart,
   displayVictory,
   timerOff,
   timerOn,
@@ -60,20 +61,23 @@ const clearBubbles = () => {
 const displayInfo = document.getElementById("displayInfo")
 const displayUserInput = document.getElementById("displayUserInput")
 
-// Shows Game over message on screen
+// Shows Game over message on info screen
 const displayGameOver = () => {
-  displayInfo.innerHTML = "Press ENTER to start"
-  displayUserInput.innerHTML = "Game over."
+  displayInfo.innerHTML = "Game over."
   return
 }
 
-// Update message
+// Show victory message on info screen
 const displayVictory = () => {
-  displayInfo.innerHTML = "Press ENTER to start"
-  displayUserInput.innerHTML = "Victory!"
+  displayInfo.innerHTML = "Victory!"
 }
 
 // Update display for user input
 const updateDisplayUserInput = (input) => {
   displayUserInput.innerHTML = input
+}
+
+// Show info to start a game
+const displayStart = () => {
+  displayInfo.innerHTML = "Press ENTER to start"
 }

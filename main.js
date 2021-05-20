@@ -6,11 +6,17 @@ import {
   score,
 } from "./js_modules/operations.js"
 
-import { myTimer, resetTimer, timerIsOn } from "./js_modules/timer.js"
+import {
+  myTimer,
+  resetTimer,
+  timerIsOn,
+  stopTimer,
+} from "./js_modules/timer.js"
 
 import {
   clearBubbles,
   displayGameOver,
+  displayStart,
   displayVictory,
   timerOff,
   updateDisplayUserInput,
@@ -24,11 +30,15 @@ export { userInputNmr, round, startTime }
 
 let round = 0
 let gameStarted = 0
+let setEnded = 0
 let startTime = 20
 
 // Prepare the timer
 timerOff()
 updateTimer(startTime)
+
+// Display instructions to start game
+displayStart()
 
 // Declare DOM elements
 const enter = document.getElementById("enter")
@@ -42,6 +52,8 @@ let userInputNmr
 enter.addEventListener("click", () => {
   if (!gameStarted) {
     startGame()
+  } else if (setEnded) {
+    proposeNewSet()
   } else {
     feedback()
     oneRound()
@@ -55,34 +67,27 @@ const startGame = () => {
   oneRound()
 }
 
-// One set of X rounds
+// One round with control for winning/losing situations
 const oneRound = () => {
   clearInput()
   if (continueGame()) {
     oneQuestionLevel0()
     round += 1
-  } else if (playerWins()) {
-    displayVictory()
   } else {
-    displayGameOver()
+    stopTimer()
+    setEnded = 1
+    if (playerWins()) {
+      displayVictory()
+    } else {
+      displayGameOver()
+    }
   }
 }
 
-// Stop the game
-const stopGame = () => {}
-
-// Reset game variables and styles
-const resetGame = () => {
-  clearBubbles()
-  clearInput()
-  resetScore()
-  resetRound()
-  resetTimer()
-}
-
-// Reset the round number
-const resetRound = () => {
-  round = 0
+// Propose a new set
+const proposeNewSet = () => {
+  displayStart()
+  resetGame()
 }
 
 // Returns true if game shoud continue
@@ -131,6 +136,22 @@ const updateUserInput = (value) => {
     userInputArr.push(value)
     userInputNmr = Number(userInputArr.join(""))
   }
+}
+
+// Reset game variables and styles
+const resetGame = () => {
+  setEnded = 0
+  gameStarted = 0
+  clearBubbles()
+  clearInput()
+  resetScore()
+  resetRound()
+  resetTimer(startTime)
+}
+
+// Reset the round number
+const resetRound = () => {
+  round = 0
 }
 
 // Set the user input to "0" and update the display
