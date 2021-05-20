@@ -8,8 +8,7 @@ A simple app in JavaScript designed to help the player to develop basic mental m
 
 ## Roadmap
 
-1. One player game - played on terminal
-2. App integrated into a website
-3. Login to save progress
-4. Leaderboard
-5. live duel against another human player
+1. App integrated into a website
+2. Login to save progress
+3. Leaderboard
+4. live duel against another human player
