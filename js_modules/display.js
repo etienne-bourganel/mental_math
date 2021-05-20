@@ -40,9 +40,9 @@ const timerOn = () => {
 }
 
 // Update the timer with specific length
-const updateTimer = (timeLeft) => {
-  const formattedTimeLeft = Math.abs(timeLeft).toFixed(1).padStart(4, "0")
-  timer.innerHTML = formattedTimeLeft
+const updateTimer = (time) => {
+  const formattedTime = Math.abs(time).toFixed(1).padStart(4, "0")
+  timer.innerHTML = formattedTime
 }
 
 // PROGRESS BUBBLES

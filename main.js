@@ -18,15 +18,17 @@ import {
 } from "./js_modules/display.js"
 
 // All exports
-export { userInputNmr, round }
+export { userInputNmr, round, startTime }
 
 // Declare and initialize main variables
-let timeLeft = 7
+
 let round = 0
+let gameStarted = 0
+let startTime = 20
 
 // Prepare the timer
 timerOff()
-updateTimer(timeLeft)
+updateTimer(startTime)
 
 // Declare DOM elements
 const enter = document.getElementById("enter")
@@ -38,22 +40,36 @@ let userInputNmr
 
 // Start the game when ENTER is pressed
 enter.addEventListener("click", () => {
-  startGame()
+  if (!gameStarted) {
+    startGame()
+  } else {
+    feedback()
+    oneRound()
+  }
 })
 
 // Start the timer and trigger the first question
 const startGame = () => {
-  myTimer(timeLeft)
-  oneSet()
+  gameStarted = 1
+  myTimer()
+  oneRound()
 }
 
 // One set of X rounds
-const oneSet = async () => {
-  oneQuestionLevel0()
-  if (playerWins()) {
+const oneRound = () => {
+  clearInput()
+  if (continueGame()) {
+    oneQuestionLevel0()
+    round += 1
+  } else if (playerWins()) {
     displayVictory()
-  } else displayGameOver()
+  } else {
+    displayGameOver()
+  }
 }
+
+// Stop the game
+const stopGame = () => {}
 
 // Reset game variables and styles
 const resetGame = () => {
@@ -71,14 +87,14 @@ const resetRound = () => {
 
 // Returns true if game shoud continue
 const continueGame = () => {
-  if (round < 9 && score < 10 && timerIsOn) {
+  if (round < 10 && score < 10 && timerIsOn) {
     return true
   }
 }
 
 // Returns true if game should end
 const endGame = () => {
-  if (round == 9 || !timerIsOn) {
+  if (round == 10 || !timerIsOn) {
     return true
   }
 }
