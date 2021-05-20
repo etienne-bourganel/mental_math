@@ -1,10 +1,5 @@
 // All imports
-import {
-  feedback,
-  oneQuestionLevel0,
-  resetScore,
-  score,
-} from "./js_modules/operations.js"
+import { feedback, oneQuestionLevel0 } from "./js_modules/operations.js"
 
 import {
   myTimer,
@@ -18,27 +13,31 @@ import {
   displayGameOver,
   displayStart,
   displayVictory,
-  timerOff,
+  enableEnterBlink,
+  showScore,
+  stopEnterBlink,
+  timerOnStyle,
   updateDisplayUserInput,
   updateTimer,
 } from "./js_modules/display.js"
 
 // All exports
-export { userInputNmr, round, startTime }
+export { incrementScore1, userInputNmr, round, startTime, stopGame }
 
 // Declare and initialize main variables
-
 let round = 0
+let score = 0
 let gameStarted = 0
 let setEnded = 0
 let startTime = 20
 
 // Prepare the timer
-timerOff()
+timerOnStyle()
 updateTimer(startTime)
 
 // Display instructions to start game
 displayStart()
+enableEnterBlink()
 
 // Declare DOM elements
 const enter = document.getElementById("enter")
@@ -48,7 +47,7 @@ const clear = document.getElementById("clear")
 let userInputArr = []
 let userInputNmr
 
-// Start the game when ENTER is pressed
+// Define the different actions triggered when ENTER is pressed
 enter.addEventListener("click", () => {
   if (!gameStarted) {
     startGame()
@@ -62,6 +61,7 @@ enter.addEventListener("click", () => {
 
 // Start the timer and trigger the first question
 const startGame = () => {
+  stopEnterBlink()
   gameStarted = 1
   myTimer()
   oneRound()
@@ -74,8 +74,7 @@ const oneRound = () => {
     oneQuestionLevel0()
     round += 1
   } else {
-    stopTimer()
-    setEnded = 1
+    stopGame()
     if (playerWins()) {
       displayVictory()
     } else {
@@ -88,6 +87,7 @@ const oneRound = () => {
 const proposeNewSet = () => {
   displayStart()
   resetGame()
+  enableEnterBlink()
 }
 
 // Returns true if game shoud continue
@@ -97,18 +97,19 @@ const continueGame = () => {
   }
 }
 
-// Returns true if game should end
-const endGame = () => {
-  if (round == 10 || !timerIsOn) {
-    return true
-  }
-}
-
 // Set condition for winning the game
 const playerWins = () => {
   if (score == 10 && timerIsOn) {
     return 1
   }
+}
+
+// Stop the game
+const stopGame = () => {
+  enableEnterBlink()
+  stopTimer()
+  setEnded = 1
+  showScore(score)
 }
 
 // Update user input for every number pressed and display it
@@ -159,6 +160,16 @@ const clearInput = () => {
   userInputArr = []
   userInputNmr = 0
   updateDisplayUserInput(userInputNmr)
+}
+
+// Increment the score of 1 point
+const incrementScore1 = () => {
+  score += 1
+}
+
+// Det the score to 0
+const resetScore = () => {
+  score = 0
 }
 
 // eventListener to avoid double tap to trigger zoom on mobile

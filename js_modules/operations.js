@@ -1,6 +1,6 @@
 // All exports and exports
-export { oneQuestionLevel0, feedback, round, score, resetScore }
-import { userInputNmr, round } from "../main.js"
+export { oneQuestionLevel0, feedback, round }
+import { userInputNmr, round, incrementScore1 } from "../main.js"
 import { updateBubble, displayAddition } from "./display.js"
 
 // All basic operations
@@ -11,7 +11,6 @@ const div = (a, b) => a / b
 
 // Declaration of main variables
 let result
-let score = 0
 
 // Generation of random integers
 const randomInteger = (min, max) => {
@@ -29,14 +28,9 @@ const oneQuestionLevel0 = () => {
 // Update score and progress bubble depending on user input
 const feedback = () => {
   if (result == userInputNmr) {
-    score += 1
+    incrementScore1()
     updateBubble(round, 1)
   } else {
     updateBubble(round, 0)
   }
-}
-
-// Det the score to 0
-const resetScore = () => {
-  score = 0
 }

@@ -4,8 +4,11 @@ export {
   displayGameOver,
   displayStart,
   displayVictory,
-  timerOff,
-  timerOn,
+  enableEnterBlink,
+  showScore,
+  stopEnterBlink,
+  timerOffStyle,
+  timerOnStyle,
   updateBubble,
   updateDisplayUserInput,
   updateTimer,
@@ -21,21 +24,16 @@ const updateBubble = (i, feedback) => {
   }
 }
 
-// Update the info display with addition question
-const displayAddition = (a, b) => {
-  displayInfo.innerHTML = `${a} + ${b} ?`
-}
-
 // TIMER
 // Declare DOM variables
 const timer = document.querySelector("#timerInfo")
 
 // Change the style of the timer depending on the situation
-const timerOff = () => {
+const timerOffStyle = () => {
   timer.classList.remove("timer-on")
   timer.classList.add("timer-off")
 }
-const timerOn = () => {
+const timerOnStyle = () => {
   timer.classList.remove("timer-off")
   timer.classList.add("timer-on")
 }
@@ -61,15 +59,20 @@ const clearBubbles = () => {
 const displayInfo = document.getElementById("displayInfo")
 const displayUserInput = document.getElementById("displayUserInput")
 
+// Update the info display with addition question
+const displayAddition = (a, b) => {
+  displayInfo.innerHTML = `${a} + ${b} ?`
+}
+
 // Shows Game over message on info screen
 const displayGameOver = () => {
-  displayInfo.innerHTML = "Game over."
+  displayUserInput.innerHTML = "Game over."
   return
 }
 
 // Show victory message on info screen
 const displayVictory = () => {
-  displayInfo.innerHTML = "Victory!"
+  displayUserInput.innerHTML = "Victory!"
 }
 
 // Update display for user input
@@ -80,4 +83,23 @@ const updateDisplayUserInput = (input) => {
 // Show info to start a game
 const displayStart = () => {
   displayInfo.innerHTML = "Press ENTER to start"
+  displayUserInput.innerHTML = "Good luck!"
+}
+
+// Show score
+const showScore = (score) => {
+  displayInfo.innerHTML = `Correct answers: ${score}/10`
+}
+
+// ANIMATIONS
+const enter = document.getElementById("enter")
+
+// Makes ENTER-touch blink
+const enableEnterBlink = () => {
+  enter.classList.add("blinking")
+}
+
+// Makes ENTER-touch stop blinking
+const stopEnterBlink = () => {
+  enter.classList.remove("blinking")
 }

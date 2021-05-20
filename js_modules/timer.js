@@ -1,6 +1,6 @@
 export { myTimer, timerIsOn, resetTimer, stopTimer }
-import { timerOn, timerOff, updateTimer } from "./display.js"
-import { startTime } from "../main.js"
+import { timerOnStyle, timerOffStyle, updateTimer } from "./display.js"
+import { startTime, stopGame } from "../main.js"
 
 // Declaration of timer variables
 let timerIsOn = 0
@@ -8,7 +8,7 @@ let timerIsOn = 0
 // What to do when time is out
 const timerEnd = () => {
   updateTimer("0")
-  timerOff()
+  timerOffStyle()
   timerIsOn = 0
   return 1
 }
@@ -16,11 +16,12 @@ const timerEnd = () => {
 // Start the timer and update the style and game info
 function myTimer() {
   let timeLeft = startTime
-  timerOn()
+  timerOnStyle()
   timerIsOn = 1
-  // Make startTimer global
+  // Make startTimer global with "window."
   window.startTimer = setInterval(() => {
     if (timeLeft <= 0) {
+      stopGame()
       stopTimer()
       return timerEnd()
     } else {
