@@ -25,7 +25,7 @@ export { incrementScore1, userInputNmr, round, startTime, stopGame }
 
 // Declare and initialize main variables
 let gameStarted = 0
-let level = 0
+let level = 4
 let round = 0
 let score = 0
 let setEnded = 0

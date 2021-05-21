@@ -2,7 +2,9 @@ export {
   clearBubbles,
   displayAddition,
   displayGameOver,
+  displayMultiplication,
   displayStart,
+  displaySubstraction,
   displayVictory,
   enableEnterBlink,
   showScore,
@@ -62,6 +64,16 @@ const displayUserInput = document.getElementById("displayUserInput")
 // Update the info display with addition question
 const displayAddition = (a, b) => {
   displayInfo.innerHTML = `${a} + ${b} ?`
+}
+
+// Update the info display with substraction question
+const displaySubstraction = (a, b) => {
+  displayInfo.innerHTML = `${a} - ${b} ?`
+}
+
+// Update the info display with substraction question
+const displayMultiplication = (a, b) => {
+  displayInfo.innerHTML = `${a} x ${b} ?`
 }
 
 // Shows Game over message on info screen
