@@ -187,8 +187,13 @@ clear.addEventListener("click", (e) => {
 })
 
 // Add keyboards support for input
-window.addEventListener("keydown", inputKey)
-function inputKey(e) {
+const inputKey = (e) => {
+  if (e.keyCode == 13) {
+    manageEnter()
+  }
+  if (e.keyCode == 8 || e.keyCode == 12) {
+    clearInput()
+  }
   const key = document.querySelector(`div[data-key="${e.keyCode}"]`)
   if (key) {
     const value = key.dataset.value
@@ -208,3 +213,4 @@ function inputKey(e) {
 // Prepare the styles and info at game start
 resetGame()
 displayStart()
+window.addEventListener("keydown", inputKey)
