@@ -1,5 +1,5 @@
 // All imports
-import { feedback, oneQuestionLevel0 } from "./js_modules/operations.js"
+import { feedback, oneQuestion } from "./js_modules/operations.js"
 
 import {
   myTimer,
@@ -25,6 +25,7 @@ export { incrementScore1, userInputNmr, round, startTime, stopGame }
 
 // Declare and initialize main variables
 let gameStarted = 0
+let level = 0
 let round = 0
 let score = 0
 let setEnded = 0
@@ -68,7 +69,7 @@ const startGame = () => {
 const oneRound = () => {
   clearInput()
   if (continueGame()) {
-    oneQuestionLevel0()
+    oneQuestion(level)
     round += 1
   } else {
     stopGame()
@@ -197,7 +198,6 @@ const inputKey = (e) => {
   const key = document.querySelector(`div[data-key="${e.keyCode}"]`)
   if (key) {
     const value = key.dataset.value
-    console.log(value)
     if (value == "enter") {
       return manageEnter()
     } else if (value == "clear") {
