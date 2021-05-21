@@ -44,20 +44,20 @@ const randomNumbersArr = (operation, level) => {
       }
     case 3:
       if (operation == sub) {
-        return [randomInteger(1, 20), randomInteger(1, 20)].sort(
+        return [randomInteger(9, 19), randomInteger(9, 19)].sort(
           (a, b) => b - a
         )
       } else if (operation == mul) {
-        return [randomInteger(1, 9), randomInteger(1, 9)]
-      } else return [randomInteger(1, 20), randomInteger(1, 20)]
+        return [randomInteger(9, 19), randomInteger(1, 9)]
+      } else return [randomInteger(9, 19), randomInteger(9, 19)]
     case 4:
       if (operation == sub) {
-        return [randomInteger(1, 20), randomInteger(1, 20)].sort(
+        return [randomInteger(9, 49), randomInteger(9, 49)].sort(
           (a, b) => b - a
         )
       } else if (operation == mul) {
-        return [randomInteger(1, 20), randomInteger(1, 9)]
-      } else return [randomInteger(1, 20), randomInteger(1, 20)]
+        return [randomInteger(9, 19), randomInteger(1, 9)]
+      } else return [randomInteger(9, 49), randomInteger(9, 49)]
   }
 }
 

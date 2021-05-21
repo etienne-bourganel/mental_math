@@ -18,6 +18,7 @@ import {
   stopEnterBlink,
   timerOnStyle,
   updateDisplayUserInput,
+  updateLevel,
 } from "./js_modules/display.js"
 
 // All exports
@@ -25,7 +26,7 @@ export { incrementScore1, userInputNmr, round, startTime, stopGame }
 
 // Declare and initialize main variables
 let gameStarted = 0
-let level = 4
+let level = 0
 let round = 0
 let score = 0
 let setEnded = 0
@@ -41,7 +42,7 @@ let userInputDigit
 let userInputNmr
 
 // Define the different actions triggered when ENTER is pressed
-enter.addEventListener("click", () => {
+enter.addEventListener("touchstart", () => {
   manageEnter()
 })
 
@@ -59,6 +60,7 @@ const manageEnter = () => {
 
 // Start the timer and trigger the first question
 const startGame = () => {
+  updateLevel(level)
   stopEnterBlink()
   gameStarted = 1
   myTimer()
@@ -78,7 +80,7 @@ const oneRound = () => {
 
 // Propose a new set
 const proposeNewSet = () => {
-  displayStart()
+  displayStart(level)
   resetGame()
 }
 
@@ -109,6 +111,9 @@ const endGameInfo = () => {
   showScore(score)
   if (playerWins()) {
     displayVictory()
+    if (level < 4) {
+      level += 1
+    }
   } else {
     displayGameOver()
   }
@@ -117,7 +122,7 @@ const endGameInfo = () => {
 // Update user input for every number pressed and display it
 const touches = document.querySelectorAll(".number")
 touches.forEach((touch) => {
-  touch.addEventListener("click", (e) => {
+  touch.addEventListener("touchstart", (e) => {
     userInputDigit = e.target.dataset.value
     inputDigit()
   })
@@ -134,7 +139,7 @@ const inputDigit = () => {
 }
 
 // Reset the user input to 0 and display it
-clear.addEventListener("click", () => {
+clear.addEventListener("touchstart", () => {
   clearInput()
 })
 
@@ -212,5 +217,5 @@ const inputKey = (e) => {
 
 // Prepare the styles and info at game start
 resetGame()
-displayStart()
+displayStart(level)
 window.addEventListener("keydown", inputKey)

@@ -13,6 +13,7 @@ export {
   timerOnStyle,
   updateBubble,
   updateDisplayUserInput,
+  updateLevel,
   updateTimer,
 }
 
@@ -96,8 +97,8 @@ const updateDisplayUserInput = (input) => {
 }
 
 // Show info to start a game
-const displayStart = () => {
-  displayInfo.innerHTML = "Press ENTER to start"
+const displayStart = (level) => {
+  displayInfo.innerHTML = `Press ENTER to start level ${level}`
   displayUserInput.classList.add("display-message")
   displayUserInput.innerHTML = "Good luck!"
   enableEnterBlink()
@@ -119,4 +120,10 @@ const enableEnterBlink = () => {
 // Makes ENTER-touch stop blinking
 const stopEnterBlink = () => {
   enter.classList.remove("blinking")
+}
+
+// Update level number
+const updateLevel = (level) => {
+  const levelNum = document.getElementById("levelNum")
+  levelNum.innerHTML = level
 }
