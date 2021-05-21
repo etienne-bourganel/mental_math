@@ -12,6 +12,8 @@ body {
 .top-container {
   box-sizing: border-box;
   height: 90vh;
+  margin: 0 auto;
+  max-width: 500px;
   padding: 0.5em;
   overflow: hidden;
 }
@@ -26,6 +28,7 @@ body {
     "keys";
   grid-template-rows: 3fr 1fr 3fr 50%;
   height: 95%;
+  margin: 0 auto;
   overflow: hidden;
 }
 
@@ -41,7 +44,7 @@ body {
   grid-area: header;
   grid-template: "appTitle . levelTimer";
   grid-template-columns: 4fr 1fr 4fr;
-  margin-top: 1em;
+  margin-top: 1.7em;
   margin-bottom: 0.8em;
 }
 
@@ -58,7 +61,7 @@ body {
   border-radius: 2rem;
   flex-direction: column;
   grid-area: levelTimer;
-  margin-right: 2.5em;
+  margin-right: 2em;
 }
 
 .level {

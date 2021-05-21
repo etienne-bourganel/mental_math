@@ -40,6 +40,11 @@ let userInputNmr
 
 // Define the different actions triggered when ENTER is pressed
 enter.addEventListener("click", () => {
+  manageEnter()
+})
+
+// All actions triggered by pressing ENTER
+const manageEnter = () => {
   if (!gameStarted) {
     startGame()
   } else if (setEnded) {
@@ -48,7 +53,7 @@ enter.addEventListener("click", () => {
     feedback()
     oneRound()
   }
-})
+}
 
 // Start the timer and trigger the first question
 const startGame = () => {
@@ -111,7 +116,7 @@ const endGameInfo = () => {
 const touches = document.querySelectorAll(".number")
 touches.forEach((touch) => {
   touch.addEventListener("click", () => {
-    const userInputDigit = touch.innerHTML
+    const userInputDigit = touch.dataset.value
     updateUserInput(Number(userInputDigit))
     updateDisplayUserInput(userInputNmr)
   })
@@ -175,6 +180,22 @@ enter.addEventListener("click", (e) => {
 clear.addEventListener("click", (e) => {
   e.preventDefault()
 })
+
+// Add keyboards support for input
+window.addEventListener("keydown", inputKey)
+function inputKey(e) {
+  const key = document.querySelector(`div[data-key="${e.keyCode}"]`)
+  if (key) {
+    const value = key.dataset.value
+    console.log(value)
+    if (value == "enter") {
+      manageEnter()
+    }
+    if (value == "clear") {
+      clearInput()
+    }
+  }
+}
 
 // Prepare the styles and info at game start
 resetGame()
