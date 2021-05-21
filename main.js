@@ -18,7 +18,6 @@ import {
   stopEnterBlink,
   timerOnStyle,
   updateDisplayUserInput,
-  updateTimer,
 } from "./js_modules/display.js"
 
 // All exports
@@ -30,14 +29,6 @@ let score = 0
 let gameStarted = 0
 let setEnded = 0
 let startTime = 20
-
-// Prepare the timer
-timerOnStyle()
-updateTimer(startTime)
-
-// Display instructions to start game
-displayStart()
-enableEnterBlink()
 
 // Declare DOM elements
 const enter = document.getElementById("enter")
@@ -75,11 +66,6 @@ const oneRound = () => {
     round += 1
   } else {
     stopGame()
-    if (playerWins()) {
-      displayVictory()
-    } else {
-      displayGameOver()
-    }
   }
 }
 
@@ -87,7 +73,6 @@ const oneRound = () => {
 const proposeNewSet = () => {
   displayStart()
   resetGame()
-  enableEnterBlink()
 }
 
 // Returns true if game shoud continue
@@ -106,10 +91,20 @@ const playerWins = () => {
 
 // Stop the game
 const stopGame = () => {
-  enableEnterBlink()
   stopTimer()
   setEnded = 1
+  endGameInfo()
+}
+
+// Update end of game info
+const endGameInfo = () => {
+  enableEnterBlink()
   showScore(score)
+  if (playerWins()) {
+    displayVictory()
+  } else {
+    displayGameOver()
+  }
 }
 
 // Update user input for every number pressed and display it
@@ -144,10 +139,11 @@ const resetGame = () => {
   setEnded = 0
   gameStarted = 0
   clearBubbles()
-  clearInput()
+  // clearInput()
   resetScore()
   resetRound()
   resetTimer(startTime)
+  timerOnStyle()
 }
 
 // Reset the round number
@@ -179,3 +175,7 @@ enter.addEventListener("click", (e) => {
 clear.addEventListener("click", (e) => {
   e.preventDefault()
 })
+
+// Prepare the styles and info at game start
+resetGame()
+displayStart()

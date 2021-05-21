@@ -22,7 +22,6 @@ function myTimer() {
   window.startTimer = setInterval(() => {
     if (timeLeft <= 0) {
       stopGame()
-      stopTimer()
       return timerEnd()
     } else {
       timeLeft -= 0.1

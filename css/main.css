@@ -58,6 +58,7 @@ body {
   border-radius: 2rem;
   flex-direction: column;
   grid-area: levelTimer;
+  margin-right: 2.5em;
 }
 
 .level {
@@ -100,7 +101,7 @@ body {
 }
 
 .display-info {
-  font-size: 2.5em;
+  font-size: 2em;
   font-weight: 100;
   height: 40%;
   margin-top: 0.2em;
@@ -111,6 +112,11 @@ body {
   font-size: 3em;
   font-weight: 100;
   height: 60%;
+}
+
+.display-message {
+  font-family: "Pacifico", cursive;
+  font-size: 2em;
 }
 
 /* KEYS STYLES */

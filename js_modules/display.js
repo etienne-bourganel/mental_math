@@ -66,24 +66,29 @@ const displayAddition = (a, b) => {
 
 // Shows Game over message on info screen
 const displayGameOver = () => {
+  displayUserInput.classList.add("display-message")
   displayUserInput.innerHTML = "Game over."
   return
 }
 
 // Show victory message on info screen
 const displayVictory = () => {
+  displayUserInput.classList.add("display-message")
   displayUserInput.innerHTML = "Victory!"
 }
 
 // Update display for user input
 const updateDisplayUserInput = (input) => {
+  displayUserInput.classList.remove("display-message")
   displayUserInput.innerHTML = input
 }
 
 // Show info to start a game
 const displayStart = () => {
   displayInfo.innerHTML = "Press ENTER to start"
+  displayUserInput.classList.add("display-message")
   displayUserInput.innerHTML = "Good luck!"
+  enableEnterBlink()
 }
 
 // Show score
