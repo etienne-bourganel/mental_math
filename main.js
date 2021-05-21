@@ -42,7 +42,7 @@ let userInputDigit
 let userInputNmr
 
 // Define the different actions triggered when ENTER is pressed
-enter.addEventListener("touchstart", () => {
+enter.addEventListener("click", () => {
   manageEnter()
 })
 
@@ -122,7 +122,7 @@ const endGameInfo = () => {
 // Update user input for every number pressed and display it
 const touches = document.querySelectorAll(".number")
 touches.forEach((touch) => {
-  touch.addEventListener("touchstart", (e) => {
+  touch.addEventListener("click", (e) => {
     userInputDigit = e.target.dataset.value
     inputDigit()
   })
@@ -139,7 +139,7 @@ const inputDigit = () => {
 }
 
 // Reset the user input to 0 and display it
-clear.addEventListener("touchstart", () => {
+clear.addEventListener("click", () => {
   clearInput()
 })
 

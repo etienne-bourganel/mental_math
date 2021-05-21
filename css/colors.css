@@ -93,8 +93,9 @@ html {
     border-color: #fc72a9;
     color: #fc72a9;
   }
+
   to {
-    border-color: rgb(183, 145, 191);
-    color: rgb(183, 145, 191);
+    border-color: rgb(53, 169, 35);
+    color: rgb(53, 169, 35);
   }
 }

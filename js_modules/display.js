@@ -98,7 +98,7 @@ const updateDisplayUserInput = (input) => {
 
 // Show info to start a game
 const displayStart = (level) => {
-  displayInfo.innerHTML = `Press ENTER to start level ${level}`
+  displayInfo.innerHTML = `ENTER to start level ${level}`
   displayUserInput.classList.add("display-message")
   displayUserInput.innerHTML = "Good luck!"
   enableEnterBlink()
