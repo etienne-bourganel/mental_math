@@ -24,9 +24,9 @@ import {
 export { incrementScore1, userInputNmr, round, startTime, stopGame }
 
 // Declare and initialize main variables
+let gameStarted = 0
 let round = 0
 let score = 0
-let gameStarted = 0
 let setEnded = 0
 let startTime = 20
 
@@ -36,6 +36,7 @@ const clear = document.getElementById("clear")
 
 // Declare user input values
 let userInputArr = []
+let userInputDigit
 let userInputNmr
 
 // Define the different actions triggered when ENTER is pressed
@@ -115,16 +116,21 @@ const endGameInfo = () => {
 // Update user input for every number pressed and display it
 const touches = document.querySelectorAll(".number")
 touches.forEach((touch) => {
-  touch.addEventListener("click", () => {
-    const userInputDigit = touch.dataset.value
-    updateUserInput(Number(userInputDigit))
-    updateDisplayUserInput(userInputNmr)
+  touch.addEventListener("click", (e) => {
+    userInputDigit = e.target.dataset.value
+    inputDigit()
   })
   // eventListener to avoid double tap to trigger zoom on mobile
   touch.addEventListener("click", (e) => {
     e.preventDefault()
   })
 })
+
+// Add the chosen digit to the user input and display it
+const inputDigit = () => {
+  updateUserInput(Number(userInputDigit))
+  updateDisplayUserInput(userInputNmr)
+}
 
 // Reset the user input to 0 and display it
 clear.addEventListener("click", () => {
@@ -144,7 +150,6 @@ const resetGame = () => {
   setEnded = 0
   gameStarted = 0
   clearBubbles()
-  // clearInput()
   resetScore()
   resetRound()
   resetTimer(startTime)
@@ -189,10 +194,13 @@ function inputKey(e) {
     const value = key.dataset.value
     console.log(value)
     if (value == "enter") {
-      manageEnter()
-    }
-    if (value == "clear") {
-      clearInput()
+      return manageEnter()
+    } else if (value == "clear") {
+      return clearInput()
+    } else {
+      userInputDigit = value
+      inputDigit()
+      return
     }
   }
 }
