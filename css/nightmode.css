@@ -44,6 +44,15 @@ html {
   background-color: #f55c47;
 }
 
+/* NIGHTMODE STYLES */
+.nightmode {
+  border-color: red;
+}
+
+.nightmode-off {
+  color: #002d4a;
+}
+
 /* DISPLAY STYLES*/
 .display {
   background: #d3e0dc;

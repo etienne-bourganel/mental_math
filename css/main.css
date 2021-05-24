@@ -38,12 +38,21 @@ body {
   justify-content: center;
 }
 
+.right-box {
+  align-items: flex-start;
+  display: flex;
+  justify-content: flex-start;
+}
+
 /* HEADER STYLES*/
 .header {
   display: grid;
   grid-area: header;
-  grid-template: "appTitle . levelTimer";
-  grid-template-columns: 4fr 1fr 4fr;
+  grid-template:
+    "nightmode nightmode"
+    "appTitle levelTimer";
+  grid-template-columns: 4fr 4fr;
+  grid-template-rows: 1fr 4fr;
   margin-top: 1.7em;
   margin-bottom: 0.8em;
 }
@@ -75,6 +84,13 @@ body {
   font-size: 3em;
   margin-top: 0.3em;
   width: 80%;
+}
+
+/* NIGHTMODE STYLES */
+.nightmode-box {
+  font-family: "pacifico", cursive;
+  font-size: 1.2em;
+  grid-area: nightmode;
 }
 
 /* PROGRESS BAR STYLES*/
