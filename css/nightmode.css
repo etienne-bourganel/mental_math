@@ -27,12 +27,12 @@ html {
 }
 
 /* NIGHTMODE STYLES */
-.nightmode-off {
+.nightmode {
   color: #f55c47;
 }
 
-.nightmode-off:hover,
-.night-mode:active {
+.nightmode:hover,
+.nightmode:active {
   color: #5fa1ac;
 }
 
