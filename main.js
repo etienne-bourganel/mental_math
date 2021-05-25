@@ -126,6 +126,7 @@ const endGameInfo = () => {
     displayVictory()
     if (level < 4) {
       level += 1
+      startTime += 5
     }
   } else {
     displayGameOver()

@@ -72,12 +72,21 @@ const randomNumbersArr = (operation, level) => {
 
 // Create a pair of random ints based on min and max values
 const createPair = (min1, max1, min2, max2) => {
-  return [randomInteger(min1, max1), randomInteger(min2, max2)]
+  return randomizePair([randomInteger(min1, max1), randomInteger(min2, max2)])
 }
 
 // Sorting an array in descending order
 const sortDescending = (array) => {
   return array.sort((a, b) => b - a)
+}
+
+// Retrun a randomize version of an array
+const randomizePair = (array) => {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1))
+    ;[array[i], array[j]] = [array[j], array[i]]
+  }
+  return array
 }
 
 // Return a random operation based on the maximum given index for operations[]
