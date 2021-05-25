@@ -7,6 +7,7 @@ export {
   displaySubstraction,
   displayVictory,
   enableEnterBlink,
+  switchTheme,
   showScore,
   stopEnterBlink,
   timerOffStyle,
@@ -126,4 +127,21 @@ const stopEnterBlink = () => {
 const updateLevel = (level) => {
   const levelNum = document.getElementById("levelNum")
   levelNum.innerHTML = level
+}
+
+// NIGHTMODE
+const switchTheme = (switchStatus) => {
+  const pageTheme = document.getElementById("pageTheme")
+  const nightMode = "./css/nightmode.css"
+  const dayMode = "./css/daymode.css"
+
+  const swapStyleSheet = (sheet) => {
+    pageTheme.setAttribute("href", sheet)
+  }
+
+  if (!switchStatus) {
+    swapStyleSheet(nightMode)
+  } else {
+    swapStyleSheet(dayMode)
+  }
 }

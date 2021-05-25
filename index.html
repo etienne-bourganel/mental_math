@@ -17,7 +17,7 @@
     />
     <link rel="stylesheet" href="./css/reset.css" />
     <link rel="stylesheet" href="./css/main.css" />
-    <link rel="stylesheet" href="./css/colors.css" />
+    <link id="pageTheme" rel="stylesheet" href="./css/daymode.css" />
     <script type="module" src="./main.js" async defer></script>
     <link rel="shortcut icon" type="image/jpg" href="/favicon.png" />
   </head>
@@ -40,6 +40,9 @@
               <div id="timerInfo"></div>
             </div>
           </div>
+          <div class="nightmode-box right-box">
+            <div class="nightmode" id="nightmode">🦉 Nightmode</div>
+          </div>
         </div>
 
         <div class="progressBar">
@@ -54,6 +57,7 @@
           <div id="b9" class="progress-bubble"></div>
           <div id="b10" class="progress-bubble"></div>
         </div>
+
         <div class="display round-border">
           <div
             class="center-box display-text display-info"
@@ -66,6 +70,7 @@
             0
           </div>
         </div>
+
         <div id="keys">
           <div
             data-key="27"

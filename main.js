@@ -14,6 +14,7 @@ import {
   displayStart,
   displayVictory,
   enableEnterBlink,
+  switchTheme,
   showScore,
   stopEnterBlink,
   timerOnStyle,
@@ -31,15 +32,27 @@ let round = 0
 let score = 0
 let setEnded = 0
 let startTime = 20
+let switchStatus = 0
 
 // Declare DOM elements
 const enter = document.getElementById("enter")
 const clear = document.getElementById("clear")
+const nightMode = document.getElementById("nightmode")
 
 // Declare user input values
 let userInputArr = []
 let userInputDigit
 let userInputNmr
+
+// Switch nightmode theme on nightmode div click
+nightMode.addEventListener("click", () => {
+  switchTheme(switchStatus)
+  if (!switchStatus) {
+    switchStatus = 1
+  } else {
+    switchStatus = 0
+  }
+})
 
 // Define the different actions triggered when ENTER is pressed
 enter.addEventListener("click", () => {
