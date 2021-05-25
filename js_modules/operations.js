@@ -27,38 +27,57 @@ const randomInteger = (min, max) => {
 // Provide random numbers depending on level
 const randomNumbersArr = (operation, level) => {
   switch (level) {
-    case 0:
-      return [randomInteger(1, 9), randomInteger(1, 9)]
+    case 0: // Only addition
+      return createPair(1, 9, 1, 9)
 
-    case 1:
-      if (operation == sub) {
-        return [randomInteger(1, 9), randomInteger(1, 9)].sort((a, b) => b - a)
-      } else {
-        return [randomInteger(1, 9), randomInteger(1, 9)]
+    case 1: // Addition and substraction
+      switch (operation) {
+        case sub:
+          return sortDescending(createPair(1, 19, 1, 19))
+        default:
+          return createPair(1, 49, 1, 49)
       }
-    case 2:
-      if (operation == sub) {
-        return [randomInteger(1, 9), randomInteger(1, 9)].sort((a, b) => b - a)
-      } else {
-        return [randomInteger(1, 9), randomInteger(1, 9)]
+
+    case 2: // Addition, substraction and multiplication
+      switch (operation) {
+        case sub:
+          return sortDescending(createPair(1, 49, 1, 49))
+        case mul:
+          return createPair(1, 9, 1, 9)
+        default:
+          return createPair(1, 49, 1, 49)
       }
-    case 3:
-      if (operation == sub) {
-        return [randomInteger(9, 19), randomInteger(9, 19)].sort(
-          (a, b) => b - a
-        )
-      } else if (operation == mul) {
-        return [randomInteger(9, 19), randomInteger(1, 9)]
-      } else return [randomInteger(9, 19), randomInteger(9, 19)]
-    case 4:
-      if (operation == sub) {
-        return [randomInteger(9, 49), randomInteger(9, 49)].sort(
-          (a, b) => b - a
-        )
-      } else if (operation == mul) {
-        return [randomInteger(9, 19), randomInteger(1, 9)]
-      } else return [randomInteger(9, 49), randomInteger(9, 49)]
+
+    case 3: // Addition, substraction and multiplication
+      switch (operation) {
+        case sub:
+          return sortDescending(createPair(1, 49, 1, 49))
+        case mul:
+          return createPair(1, 15, 1, 15)
+        default:
+          return createPair(1, 49, 1, 99)
+      }
+
+    case 4: // Addition, substraction and multiplication
+      switch (operation) {
+        case sub:
+          return sortDescending(createPair(1, 99, 1, 99))
+        case mul:
+          return createPair(1, 15, 1, 15)
+        default:
+          return createPair(1, 99, 1, 99)
+      }
   }
+}
+
+// Create a pair of random ints based on min and max values
+const createPair = (min1, max1, min2, max2) => {
+  return [randomInteger(min1, max1), randomInteger(min2, max2)]
+}
+
+// Sorting an array in descending order
+const sortDescending = (array) => {
+  return array.sort((a, b) => b - a)
 }
 
 // Return a random operation based on the maximum given index for operations[]
