@@ -1,5 +1,5 @@
 html {
-  background: #aee1e1;
+  background: #2b2e4a;
 }
 
 /* HEADER STYLES*/
@@ -10,12 +10,11 @@ html {
 
 /* LEVEL AND TIMER STYLES*/
 #levelTimer {
-  background-color: rgba(69, 155, 222, 0.3);
-  box-shadow: inset 0 0 3px #002d4a;
+  background-color: #53354a;
 }
 
 .level {
-  color: #ffffff;
+  color: #fc72a9;
 }
 
 /* TIMER STYLES*/
@@ -24,7 +23,17 @@ html {
 }
 
 .timer-on {
-  color: #002d4a;
+  color: #caf7e3;
+}
+
+/* NIGHTMODE STYLES */
+.nightmode-off {
+  color: #f55c47;
+}
+
+.nightmode-off:hover,
+.night-mode:active {
+  color: #5fa1ac;
 }
 
 /* PROGRESS BAR STYLES*/
@@ -44,31 +53,22 @@ html {
   background-color: #f55c47;
 }
 
-/* NIGHTMODE STYLES */
-.nightmode {
-  border-color: red;
-}
-
-.nightmode-off {
-  color: #002d4a;
-}
-
 /* DISPLAY STYLES*/
 .display {
-  background: #d3e0dc;
+  background: #4c5f7a;
   border-color: #79c6d3;
 }
 
 .display-text {
-  color: #12606d;
+  color: #aee1e1;
 }
 
 /* KEYS STYLES */
 #keys {
-  color: #12606d;
+  color: #caf7e3;
 }
 .number {
-  background-color: #ece2e1;
+  background-color: #3d2e4f;
 }
 
 .round-border {
@@ -80,11 +80,11 @@ html {
 }
 
 #clear {
-  background-color: #fcd1d1;
+  background-color: #65415a;
 }
 
 #enter {
-  background-color: #fcbbbb;
+  background-color: #53354a;
 }
 
 .blinking {
@@ -104,7 +104,7 @@ html {
   }
 
   to {
-    border-color: rgb(53, 169, 35);
-    color: rgb(53, 169, 35);
+    border-color: #caf7e3;
+    color: #caf7e3;
   }
 }
