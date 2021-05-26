@@ -32,7 +32,7 @@ let round = 0
 let score = 0
 let setEnded = 0
 let startTime = 20
-let switchStatus = 0
+let switchStatus = false
 
 // Declare DOM elements
 const enter = document.getElementById("enter")
@@ -47,11 +47,7 @@ let userInputNmr
 // Switch nightmode theme on nightmode div click
 nightMode.addEventListener("click", () => {
   switchTheme(switchStatus)
-  if (!switchStatus) {
-    switchStatus = 1
-  } else {
-    switchStatus = 0
-  }
+  switchStatus = !switchStatus
 })
 
 // Define the different actions triggered when ENTER is pressed
