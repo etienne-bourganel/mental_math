@@ -1,4 +1,3 @@
-// All imports
 import { feedback, oneQuestion } from "./js_modules/operations.js"
 
 import {
@@ -22,10 +21,8 @@ import {
   updateLevel,
 } from "./js_modules/display.js"
 
-// All exports
 export { incrementScore1, userInputNmr, round, startTime, stopGame }
 
-// Declare and initialize main variables
 let gameStarted = 0
 let level = 0
 let round = 0
@@ -33,29 +30,23 @@ let score = 0
 let setEnded = 0
 let startTime = 20
 let switchStatus = false
-
-// Declare DOM elements
-const enter = document.getElementById("enter")
-const clear = document.getElementById("clear")
-const nightMode = document.getElementById("nightmode")
-
-// Declare user input values
 let userInputArr = []
 let userInputDigit
 let userInputNmr
 
-// Switch nightmode theme on nightmode div click
+const clear = document.getElementById("clear")
+const enter = document.getElementById("enter")
+const nightMode = document.getElementById("nightmode")
+
 nightMode.addEventListener("click", () => {
   switchTheme(switchStatus)
   switchStatus = !switchStatus
 })
 
-// Define the different actions triggered when ENTER is pressed
 enter.addEventListener("click", () => {
   manageEnter()
 })
 
-// All actions triggered by pressing ENTER
 const manageEnter = () => {
   if (!gameStarted) {
     startGame()
@@ -67,7 +58,6 @@ const manageEnter = () => {
   }
 }
 
-// Start the timer and trigger the first question
 const startGame = () => {
   updateLevel(level)
   stopEnterBlink()
@@ -76,7 +66,6 @@ const startGame = () => {
   oneRound()
 }
 
-// One round with control for winning/losing situations
 const oneRound = () => {
   clearInput()
   if (continueGame()) {
@@ -87,34 +76,29 @@ const oneRound = () => {
   }
 }
 
-// Propose a new set
 const proposeNewSet = () => {
   displayStart(level)
   resetGame()
 }
 
-// Returns true if game shoud continue
 const continueGame = () => {
   if (round < 10 && score < 10 && timerIsOn) {
     return true
   }
 }
 
-// Set condition for winning the game
 const playerWins = () => {
   if (score == 10 && timerIsOn) {
     return 1
   }
 }
 
-// Stop the game
 const stopGame = () => {
   stopTimer()
   setEnded = 1
   endGameInfo()
 }
 
-// Update end of game info
 const endGameInfo = () => {
   enableEnterBlink()
   showScore(score)
@@ -129,7 +113,6 @@ const endGameInfo = () => {
   }
 }
 
-// Update user input for every number pressed and display it
 const touches = document.querySelectorAll(".number")
 touches.forEach((touch) => {
   touch.addEventListener("click", (e) => {
@@ -142,18 +125,15 @@ touches.forEach((touch) => {
   })
 })
 
-// Add the chosen digit to the user input and display it
 const inputDigit = () => {
   updateUserInput(Number(userInputDigit))
   updateDisplayUserInput(userInputNmr)
 }
 
-// Reset the user input to 0 and display it
 clear.addEventListener("click", () => {
   clearInput()
 })
 
-// Update user input
 const updateUserInput = (value) => {
   if (userInputArr.length <= 5) {
     userInputArr.push(value)
@@ -161,7 +141,6 @@ const updateUserInput = (value) => {
   }
 }
 
-// Reset game variables and styles
 const resetGame = () => {
   setEnded = 0
   gameStarted = 0
@@ -172,24 +151,20 @@ const resetGame = () => {
   timerOnStyle()
 }
 
-// Reset the round number
 const resetRound = () => {
   round = 0
 }
 
-// Set the user input to "0" and update the display
 const clearInput = () => {
   userInputArr = []
   userInputNmr = 0
   updateDisplayUserInput(userInputNmr)
 }
 
-// Increment the score of 1 point
 const incrementScore1 = () => {
   score += 1
 }
 
-// Det the score to 0
 const resetScore = () => {
   score = 0
 }
@@ -202,7 +177,6 @@ clear.addEventListener("click", (e) => {
   e.preventDefault()
 })
 
-// Add keyboards support for input
 const inputKey = (e) => {
   if (e.keyCode == 13) {
     manageEnter()
@@ -225,7 +199,6 @@ const inputKey = (e) => {
   }
 }
 
-// Prepare the styles and info at game start
 resetGame()
 displayStart(level)
 window.addEventListener("keydown", inputKey)
