@@ -23,11 +23,11 @@ import {
 
 export { incrementScore1, userInputNmr, round, startTime, stopGame }
 
-let gameStarted = 0
+let gameStarted = false
 let level = 0
 let round = 0
 let score = 0
-let setEnded = 0
+let setEnded = false
 let startTime = 20
 let switchStatus = false
 let userInputArr = []
@@ -61,7 +61,7 @@ const manageEnter = () => {
 const startGame = () => {
   updateLevel(level)
   stopEnterBlink()
-  gameStarted = 1
+  gameStarted = true
   myTimer()
   oneRound()
 }
@@ -95,7 +95,7 @@ const playerWins = () => {
 
 const stopGame = () => {
   stopTimer()
-  setEnded = 1
+  setEnded = true
   endGameInfo()
 }
 
@@ -142,8 +142,8 @@ const updateUserInput = (value) => {
 }
 
 const resetGame = () => {
-  setEnded = 0
-  gameStarted = 0
+  setEnded = false
+  gameStarted = false
   clearBubbles()
   resetScore()
   resetRound()
