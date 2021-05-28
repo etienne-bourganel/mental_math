@@ -88,7 +88,7 @@ const continueGame = () => {
 }
 
 const playerWins = () => {
-  if (score == 10 && timerIsOn) {
+  if (score === 10 && timerIsOn) {
     return 1
   }
 }
@@ -178,18 +178,18 @@ clear.addEventListener("click", (e) => {
 })
 
 const inputKey = (e) => {
-  if (e.keyCode == 13) {
+  if (e.keyCode === 13) {
     manageEnter()
   }
-  if (e.keyCode == 8 || e.keyCode == 12) {
+  if (e.keyCode === 8 || e.keyCode === 12) {
     clearInput()
   }
   const key = document.querySelector(`div[data-key="${e.keyCode}"]`)
   if (key) {
     const value = key.dataset.value
-    if (value == "enter") {
+    if (value === "enter") {
       return manageEnter()
-    } else if (value == "clear") {
+    } else if (value === "clear") {
       return clearInput()
     } else {
       userInputDigit = value

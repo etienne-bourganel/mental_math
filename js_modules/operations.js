@@ -1,10 +1,10 @@
 export { oneQuestion, feedback, round }
 import { userInputNmr, round, incrementScore1 } from "../main.js"
 import {
-  updateBubble,
   displayAddition,
   displayMultiplication,
   displaySubstraction,
+  updateBubble,
 } from "./display.js"
 
 let result
@@ -132,7 +132,7 @@ const oneQuestion = (level) => {
 }
 
 const feedback = () => {
-  if (result == userInputNmr) {
+  if (result === userInputNmr) {
     incrementScore1()
     updateBubble(round, 1)
   } else {
