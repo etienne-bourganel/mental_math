@@ -3,21 +3,25 @@ import { timerOnStyle, timerOffStyle, updateTimer } from "./display.js"
 import { startTime, stopGame } from "../main.js"
 
 let timerIsOn = false
+let timeLeft
 
-function myTimer() {
-  let timeLeft = startTime
+const myTimer = () => {
+  timeLeft = startTime
   timerOnStyle()
   timerIsOn = true
-  // Make startTimer global with "window."
   window.startTimer = setInterval(() => {
-    if (timeLeft <= 0) {
-      stopGame()
-      return timerEnd()
-    } else {
-      timeLeft -= 0.1
-      updateTimer(timeLeft)
-    }
+    timeLeft <= 0 ? stopEverything() : timeGoesOn()
   }, 100)
+}
+
+const stopEverything = () => {
+  stopGame()
+  return timerEnd()
+}
+
+const timeGoesOn = () => {
+  timeLeft -= 0.1
+  updateTimer(timeLeft)
 }
 
 const timerEnd = () => {

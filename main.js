@@ -48,14 +48,12 @@ enter.addEventListener("click", () => {
 })
 
 const manageEnter = () => {
-  if (!gameStarted) {
-    startGame()
-  } else if (setEnded) {
-    proposeNewSet()
-  } else {
-    feedback()
-    oneRound()
-  }
+  !gameStarted ? startGame() : setEnded ? proposeNewSet() : finishRound()
+}
+
+const finishRound = () => {
+  feedback()
+  oneRound()
 }
 
 const startGame = () => {
@@ -68,12 +66,12 @@ const startGame = () => {
 
 const oneRound = () => {
   clearInput()
-  if (continueGame()) {
-    oneQuestion(level)
-    round += 1
-  } else {
-    stopGame()
-  }
+  continueGame() ? startNewRound() : stopGame()
+}
+
+const startNewRound = () => {
+  oneQuestion(level)
+  round += 1
 }
 
 const proposeNewSet = () => {
@@ -81,17 +79,9 @@ const proposeNewSet = () => {
   resetGame()
 }
 
-const continueGame = () => {
-  if (round < 10 && score < 10 && timerIsOn) {
-    return true
-  }
-}
+const continueGame = () => round < 10 && score < 10 && timerIsOn
 
-const playerWins = () => {
-  if (score === 10 && timerIsOn) {
-    return 1
-  }
-}
+const playerWins = () => score === 10 && timerIsOn
 
 const stopGame = () => {
   stopTimer()
@@ -102,15 +92,17 @@ const stopGame = () => {
 const endGameInfo = () => {
   enableEnterBlink()
   showScore(score)
-  if (playerWins()) {
-    displayVictory()
-    if (level < 4) {
-      level += 1
-      startTime += 5
-    }
-  } else {
-    displayGameOver()
-  }
+  playerWins() ? endOfSet() : displayGameOver()
+}
+
+const endOfSet = () => {
+  displayVictory()
+  level < 4 ? nextLevel() : false
+}
+
+const nextLevel = () => {
+  level += 1
+  startTime += 5
 }
 
 const touches = document.querySelectorAll(".number")
