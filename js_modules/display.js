@@ -20,23 +20,19 @@ export {
 
 const updateBubble = (i, feedback) => {
   const bubble = document.getElementById(`b${i}`)
-  if (feedback) {
-    bubble.classList.add("bubble-correct")
-  } else {
-    bubble.classList.add("bubble-incorrect")
-  }
+  feedback
+    ? bubble.classList.add("bubble-correct")
+    : bubble.classList.add("bubble-incorrect")
 }
 
 // TIMER
 const timer = document.querySelector("#timerInfo")
 
 const timerOffStyle = () => {
-  timer.classList.remove("timer-on")
-  timer.classList.add("timer-off")
+  timer.classList.toggle("timer-off")
 }
 const timerOnStyle = () => {
-  timer.classList.remove("timer-off")
-  timer.classList.add("timer-on")
+  timer.classList.toggle("timer-on")
 }
 
 const updateTimer = (time) => {
@@ -122,9 +118,5 @@ const switchTheme = (switchStatus) => {
     pageTheme.setAttribute("href", sheet)
   }
 
-  if (!switchStatus) {
-    swapStyleSheet(nightMode)
-  } else {
-    swapStyleSheet(dayMode)
-  }
+  !switchStatus ? swapStyleSheet(nightMode) : swapStyleSheet(dayMode)
 }
