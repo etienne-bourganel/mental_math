@@ -66,19 +66,15 @@ const randomNumbersArr = (operation, level) => {
 }
 
 const createPair = (min1, max1, min2, max2) => {
-  return randomizePair([randomInteger(min1, max1), randomInteger(min2, max2)])
+  return shuffleArray([randomInteger(min1, max1), randomInteger(min2, max2)])
 }
 
 const sortDescending = (array) => {
   return array.sort((a, b) => b - a)
 }
 
-const randomizePair = (array) => {
-  for (let i = array.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1))
-    ;[array[i], array[j]] = [array[j], array[i]]
-  }
-  return array
+const shuffleArray = (array) => {
+  return array.sort(() => Math.random() - 0.5)
 }
 
 const randomOperation = (maxIndex) => {
@@ -124,9 +120,7 @@ const displayOperations = (operation, a, b) => {
 
 const oneQuestion = (level) => {
   const operation = oneOperation(level)
-  const randomNumbersPair = randomNumbersArr(operation, level)
-  const a = randomNumbersPair[0]
-  const b = randomNumbersPair[1]
+  const [a, b] = randomNumbersArr(operation, level)
   result = operation(a, b)
   displayOperations(operation, a, b)
 }

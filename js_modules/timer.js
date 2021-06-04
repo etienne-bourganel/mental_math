@@ -1,12 +1,12 @@
 export { myTimer, timerIsOn, resetTimer, stopTimer }
 import { timerOnStyle, timerOffStyle, updateTimer } from "./display.js"
-import { startTime, stopGame } from "../main.js"
+import { startingTime, stopGame } from "../main.js"
 
 let timerIsOn = false
 let timeLeft
 
 const myTimer = () => {
-  timeLeft = startTime
+  timeLeft = startingTime
   timerOnStyle()
   timerIsOn = true
   window.startTimer = setInterval(() => {

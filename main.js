@@ -21,14 +21,14 @@ import {
   updateLevel,
 } from "./js_modules/display.js"
 
-export { incrementScore1, userInputNmr, round, startTime, stopGame }
+export { incrementScore1, userInputNmr, round, startingTime, stopGame }
 
 let gameStarted = false
 let level = 0
 let round = 0
 let score = 0
 let setEnded = false
-let startTime = 20
+let startingTime = 20
 let switchStatus = false
 let userInputArr = []
 let userInputDigit
@@ -102,7 +102,7 @@ const endOfSet = () => {
 
 const nextLevel = () => {
   level += 1
-  startTime += 5
+  startingTime += 5
 }
 
 const touches = document.querySelectorAll(".number")
@@ -139,7 +139,7 @@ const resetGame = () => {
   clearBubbles()
   resetScore()
   resetRound()
-  resetTimer(startTime)
+  resetTimer(startingTime)
   timerOnStyle()
 }
 
