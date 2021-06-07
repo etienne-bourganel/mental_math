@@ -127,10 +127,9 @@ clear.addEventListener("click", () => {
 })
 
 const updateUserInput = (value) => {
-  if (userInputArr.length <= 5) {
-    userInputArr.push(value)
-    userInputNmr = Number(userInputArr.join(""))
-  }
+  userInputArr.length <= 5
+    ? (userInputArr.push(value), (userInputNmr = Number(userInputArr.join(""))))
+    : false
 }
 
 const resetGame = () => {
