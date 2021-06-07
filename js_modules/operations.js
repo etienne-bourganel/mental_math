@@ -21,52 +21,72 @@ const randomInteger = (min, max) => {
 }
 
 const randomNumbersArr = (operation, level) => {
+  let interval1 = {}
+  let interval2 = {}
+
   switch (level) {
     case 0:
-      return createPair(1, 9, 1, 9)
+      interval1 = { min: 1, max: 9 }
+      return createPair(interval1, interval1)
 
     case 1:
       switch (operation) {
         case sub:
-          return sortDescending(createPair(1, 19, 1, 19))
+          interval1 = { min: 1, max: 19 }
+          return sortDescending(createPair(interval1, interval1))
         default:
-          return createPair(1, 49, 1, 49)
+          interval1 = { min: 1, max: 49 }
+          return createPair(interval1, interval1)
       }
 
     case 2:
       switch (operation) {
         case sub:
-          return sortDescending(createPair(1, 49, 1, 49))
+          interval1 = { min: 1, max: 49 }
+          return sortDescending(createPair(interval1, interval1))
         case mul:
-          return createPair(1, 9, 1, 9)
+          interval1 = { min: 1, max: 9 }
+          return createPair(interval1, interval1)
         default:
-          return createPair(1, 49, 1, 49)
+          interval1 = { min: 1, max: 49 }
+          return createPair(interval1, interval1)
       }
 
     case 3:
       switch (operation) {
         case sub:
-          return sortDescending(createPair(1, 49, 1, 49))
+          interval1 = { min: 1, max: 49 }
+          return sortDescending(createPair(interval, interval))
         case mul:
-          return createPair(1, 15, 1, 15)
+          interval1 = { min: 1, max: 9 }
+          interval2 = { min: 1, max: 15 }
+          return createPair(interval, interval)
         default:
-          return createPair(1, 49, 1, 99)
+          interval1 = { min: 1, max: 49 }
+          interval2 = { min: 1, max: 99 }
+          return createPair(interval1, interval2)
       }
 
     case 4:
       switch (operation) {
         case sub:
-          return sortDescending(createPair(1, 99, 1, 99))
+          interval1 = { min: 1, max: 99 }
+          return sortDescending(createPair(interval1, interval1))
         case mul:
-          return createPair(1, 15, 1, 15)
+          interval1 = { min: 1, max: 15 }
+          return createPair(interval1, interval1)
         default:
-          return createPair(1, 99, 1, 99)
+          interval1 = { min: 1, max: 99 }
+          return createPair(interval1, interval1)
       }
   }
 }
 
-const createPair = (min1, max1, min2, max2) => {
-  return shuffleArray([randomInteger(min1, max1), randomInteger(min2, max2)])
+const createPair = (interval1, interval2) => {
+  return shuffleArray([
+    randomInteger(interval1.min, interval1.max),
+    randomInteger(interval2.min, interval2.max),
+  ])
 }
 
 const sortDescending = (array) => {
