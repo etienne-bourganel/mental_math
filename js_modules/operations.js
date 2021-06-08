@@ -37,8 +37,8 @@ const createIntervals = (operation, level) => {
           ]
         default:
           return [
-            { min: 1, max: 49 },
-            { min: 1, max: 49 },
+            { min: 11, max: 49 },
+            { min: 11, max: 49 },
           ]
       }
 
@@ -46,13 +46,13 @@ const createIntervals = (operation, level) => {
       switch (operation) {
         case mul:
           return [
-            { min: 1, max: 9 },
-            { min: 1, max: 9 },
+            { min: 2, max: 9 },
+            { min: 2, max: 9 },
           ]
         default:
           return [
-            { min: 1, max: 49 },
-            { min: 1, max: 49 },
+            { min: 11, max: 49 },
+            { min: 11, max: 49 },
           ]
       }
 
@@ -60,18 +60,18 @@ const createIntervals = (operation, level) => {
       switch (operation) {
         case sub:
           return [
-            { min: 1, max: 49 },
-            { min: 1, max: 49 },
+            { min: 11, max: 49 },
+            { min: 11, max: 49 },
           ]
         case mul:
           return [
-            { min: 1, max: 9 },
-            { min: 1, max: 15 },
+            { min: 3, max: 9 },
+            { min: 9, max: 15 },
           ]
         default:
           return [
-            { min: 1, max: 49 },
-            { min: 1, max: 99 },
+            { min: 11, max: 99 },
+            { min: 11, max: 99 },
           ]
       }
 
@@ -79,13 +79,13 @@ const createIntervals = (operation, level) => {
       switch (operation) {
         case mul:
           return [
-            { min: 1, max: 15 },
-            { min: 1, max: 15 },
+            { min: 3, max: 15 },
+            { min: 3, max: 15 },
           ]
         default:
           return [
-            { min: 1, max: 99 },
-            { min: 1, max: 19 },
+            { min: 11, max: 99 },
+            { min: 11, max: 99 },
           ]
       }
   }

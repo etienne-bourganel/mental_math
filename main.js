@@ -168,28 +168,35 @@ clear.addEventListener("click", (e) => {
   e.preventDefault()
 })
 
-const inputKey = (e) => {
-  if (e.keyCode === 13) {
-    manageEnter()
+const handleInput = (e) => {
+  switch (e.code) {
+    case "Enter":
+      manageEnter()
+
+    case "Backspace" || "Escape":
+      clearInput()
   }
-  if (e.keyCode === 8 || e.keyCode === 12) {
-    clearInput()
-  }
-  const key = document.querySelector(`div[data-key="${e.keyCode}"]`)
-  if (key) {
-    const value = key.dataset.value
-    if (value === "enter") {
+
+  const validKey = document.querySelector(`div[data-key="${e.keyCode}"]`)
+  validKey ? handleOtherKey(validKey) : false
+}
+
+const handleOtherKey = (key) => {
+  const value = key.dataset.value
+  switch (value) {
+    case "enter":
       return manageEnter()
-    } else if (value === "clear") {
+
+    case "clear":
       return clearInput()
-    } else {
+
+    default:
       userInputDigit = value
       inputDigit()
       return
-    }
   }
 }
 
 resetGame()
 displayStart(level)
-window.addEventListener("keydown", inputKey)
+window.addEventListener("keydown", handleInput)

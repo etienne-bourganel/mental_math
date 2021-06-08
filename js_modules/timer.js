@@ -7,7 +7,6 @@ let timeLeft
 
 const myTimer = () => {
   timeLeft = startingTime
-  timerOnStyle()
   timerIsOn = true
   window.startTimer = setInterval(() => {
     timeLeft <= 0 ? stopEverything() : timeGoesOn()
