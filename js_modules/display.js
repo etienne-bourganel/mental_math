@@ -1,6 +1,7 @@
 export {
   clearBubbles,
   displayAddition,
+  displayDivision,
   displayGameOver,
   displayMultiplication,
   displayStart,
@@ -63,6 +64,10 @@ const displaySubstraction = (a, b) => {
 
 const displayMultiplication = (a, b) => {
   displayInfo.innerHTML = `${a} x ${b} ?`
+}
+
+const displayDivision = (a, b) => {
+  displayInfo.innerHTML = `${a} / ${b} ?`
 }
 
 const displayGameOver = () => {

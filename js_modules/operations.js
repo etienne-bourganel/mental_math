@@ -2,6 +2,7 @@ export { oneQuestion, feedback, round }
 import { userInputNmr, round, incrementScore1 } from "../main.js"
 import {
   displayAddition,
+  displayDivision,
   displayMultiplication,
   displaySubstraction,
   updateBubble,
@@ -45,6 +46,12 @@ const createIntervals = (operation, level) => {
     case 2:
       switch (operation) {
         case mul:
+        case div:
+          return [
+            { min: 2, max: 9 },
+            { min: 2, max: 9 },
+          ]
+        case div:
           return [
             { min: 2, max: 9 },
             { min: 2, max: 9 },
@@ -64,6 +71,7 @@ const createIntervals = (operation, level) => {
             { min: 11, max: 49 },
           ]
         case mul:
+        case div:
           return [
             { min: 3, max: 9 },
             { min: 9, max: 15 },
@@ -78,6 +86,7 @@ const createIntervals = (operation, level) => {
     case 4:
       switch (operation) {
         case mul:
+        case div:
           return [
             { min: 3, max: 15 },
             { min: 3, max: 15 },
@@ -98,16 +107,26 @@ const createPairfromIntervals = (intervals) => {
   ]
 }
 
+const createPairfromIntervalsForDiv = (intervals) => {
+  let a = randomInteger(intervals[0].min, intervals[0].max)
+  let b = randomInteger(intervals[1].min, intervals[1].max)
+  let c = a * b
+  return [c, a]
+}
+
 const adaptPairToOperation = (operation, pair) => {
   const adaptedPair =
     operation === sub ? sortDescending(pair) : shuffleArray(pair)
+  console.log(adaptedPair)
   return adaptedPair
 }
 
 const generateCorrectPair = (operation, level) => {
   const intervals = createIntervals(operation, level)
   const pair = createPairfromIntervals(intervals)
-  return adaptPairToOperation(operation, pair)
+  return operation === div
+    ? createPairfromIntervalsForDiv(intervals)
+    : adaptPairToOperation(operation, pair)
 }
 
 const sortDescending = (array) => {
@@ -130,11 +149,11 @@ const oneOperation = (level) => {
     case 1:
       return randomOperation(1)
     case 2:
-      return randomOperation(2)
+      return randomOperation(3)
     case 3:
-      return randomOperation(2)
+      return randomOperation(3)
     case 4:
-      return randomOperation(2)
+      return randomOperation(3)
   }
 }
 
@@ -146,6 +165,8 @@ const displayOperations = (operation, a, b) => {
       return displaySubstraction(a, b)
     case mul:
       return displayMultiplication(a, b)
+    case div:
+      return displayDivision(a, b)
   }
 }
 
