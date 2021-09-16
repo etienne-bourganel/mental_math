@@ -4,11 +4,18 @@ A simple app in JavaScript designed to help the player to develop basic mental m
 
 ## Live
 
-[Link](https://etienne-bourganel.github.io/mental_math/)
+See deployed version here: <https://etienne-bourganel.github.io/mental_math/>
 
-## Roadmap
+## Use
 
-1. App integrated into a website
-2. Login to save progress
-3. Leaderboard
-4. live duel against another human player
+Use http-server module to be able to run the project in your local environment
+
+<https://www.npmjs.com/package/http-server>
+
+Once installed, simply type the following line in the console from the root of the project directory.
+
+```zsh
+http-server
+```
+
+Happy mental-mathing! :)
